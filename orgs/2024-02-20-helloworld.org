@@ -1,6 +1,0 @@
-#+TITLE: 这真的可行吗？
-#+DATE: 2024-02-20
-#+FILETAGS: :emacs:
-
-* isabel?
-这是一个测试方法
