@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2024-03-25 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>百般武艺，此乃 Emacs （序）</title>
+<meta name="author" content="Eli Qian" />
+<meta name="generator" content="Org Mode" />
+<link rel="icon" href="/static/favion.png">
+<link rel="stylesheet" type="text/css" href="/css/styles.css"/>
+<link rel="stylesheet" type="text/css" href="/css/htmlize.css" />
+                  <script src="/scripts/script.js"></script>
+                  <script src="/scripts/toc.js"></script>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<style>
+.content:has([value="all"]:checked) li{display: list-item;}
+
+.content:has([value="CSS"]:checked)
+ li:has([data-tags~="#CSS"]){display: list-item;}
+.content:has([value="blog"]:checked)
+ li:has([data-tags~="#blog"]){display: list-item;}
+.content:has([value="emacs"]:checked)
+ li:has([data-tags~="#emacs"]){display: list-item;}
+.content:has([value="org"]:checked)
+ li:has([data-tags~="#org"]){display: list-item;}
+</style>
+<script>
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<nav class="nav">
+  <a href="/index.html" class="button">Home</a>
+  <a href="/config.html" class="button">Literate Emacs Config</a>
+  <a href="/rss.xml" class="button">RSS</a>
+</nav>
+<hr>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">百般武艺，此乃 Emacs （序）</h1>
+</header><div class="post-status"><span><i class='bx bx-calendar'></i>
+<span>2024-02-20</span></span>
+<span><i class='bx bx-edit'></i><span>2024-03-12</span></span><span><i class='bx bx-history'></i><span><a href="https://github.com/Elilif/Elilif.github.io/commits/master/orgs/2024-02-20-all-in-emacs-preface.org">History</a></span></span><span><i class='bx bxs-hourglass'></i>299 字</span></div><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#这是什么?">这是什么?</a></li>
+<li><a href="#注意事项">注意事项</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-这是什么?" class="outline-2">
+<h2 id="这是什么?">这是什么?</h2>
+<div class="outline-text-2" id="text-这是什么?">
+<p>
+这是一个系列文章，主要介绍了我目前用 Emacs 做的各种事情。
+</p>
+
+<p>
+写这个系列的出衷是因为我最近打算实践一下文学编程，用文学编程的方式重写我的 Emacs
+配置文件，希望最终能像 <a href="https://tecosaur.github.io/emacs-config/config.html#language-configuration">tecosaur's Doom Emacs Configuration</a> 那样发布成一个网页。但是重写配置是一个十分麻烦且枯燥的工作，所以我希望能将其分解成一系列更小的模块慢慢写，同时尝试发布在网页上看看效果，于是此系列就应运而生。
+</p>
+</div>
+</div>
+
+<div id="outline-container-注意事项" class="outline-2">
+<h2 id="注意事项">注意事项</h2>
+<div class="outline-text-2" id="text-注意事项">
+<ol class="org-ol">
+<li>此站点还在施工中，在 UI 、交互等方面还有很多不完善的地方。</li>
+<li>我还在探索文学编程的最佳实践，目前发布的文章中的代码块的展示方式也还没有确定，其中的内容也可能比较混乱。</li>
+</ol>
+
+<p>
+目前的方案是提供一个展开代码块中的 noweb 的按钮，比如说有如下代码：
+</p>
+
+<div class="multilang">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>test-divider</label><pre class="src src-emacs-lisp" id="test-divider"><span class="linenr">1: </span><span class="org-mindre-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>message<span class="org-whitespace-space"> </span><span class="org-string">"--------------------------------"</span><span class="org-mindre-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
+</pre>
+</div>
+
+</div>
+
+
+<p>
+在下面的代码块中按展开按钮可以展开 <a href="#test-divider">&lt;&lt;test-divider&gt;&gt;</a> 。
+</p>
+
+<div class="multilang">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>test-example</label><pre class="src src-emacs-lisp" id="test-example"><span class="linenr">1: </span>&lt;&lt;<a href="#test-divider">test-divider</a>&gt;&gt;
+<span class="linenr">2: </span><span class="org-mindre-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>message<span class="org-whitespace-space"> </span><span class="org-string">"This</span><span class="org-whitespace-space"> </span><span class="org-string">is</span><span class="org-whitespace-space"> </span><span class="org-string">a</span><span class="org-whitespace-space"> </span><span class="org-string">test."</span><span class="org-mindre-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
+<span class="linenr">3: </span>&lt;&lt;<a href="#test-divider">test-divider</a>&gt;&gt;
+</pre>
+</div>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span class="linenr">1: </span><span class="org-mindre-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>message<span class="org-whitespace-space"> </span><span class="org-string">"--------------------------------"</span><span class="org-mindre-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
+<span class="linenr">2: </span><span class="org-mindre-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>message<span class="org-whitespace-space"> </span><span class="org-string">"This</span><span class="org-whitespace-space"> </span><span class="org-string">is</span><span class="org-whitespace-space"> </span><span class="org-string">a</span><span class="org-whitespace-space"> </span><span class="org-string">test."</span><span class="org-mindre-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
+<span class="linenr">3: </span><span class="org-mindre-paren"><span class="org-rainbow-delimiters-depth-1">(</span></span>message<span class="org-whitespace-space"> </span><span class="org-string">"--------------------------------"</span><span class="org-mindre-paren"><span class="org-rainbow-delimiters-depth-1">)</span></span>
+</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<script src="https://giscus.app/client.js"
+          data-repo="Elilif/Elilif.github.io"
+          data-repo-id="MDEwOlJlcG9zaXRvcnkyOTgxNjM5ODg="
+          data-category="Announcements"
+          data-category-id="DIC_kwDOEcWfFM4Cdz5V"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="top"
+          data-theme="light"
+          data-lang="zh-CN"
+          crossorigin="anonymous"
+          async>
+  </script><div id="postamble" class="status">
+<hr class="Solid">
+<div class="info">
+  <span class="author">Author: Eli Qian</span>
+  <span class="author">Email: <a href="mailto:eli.q.qian@gmail.com">eli.q.qian@gmail.com</a></span>
+  <span class="date">Create Date: 2024-02-20</span>
+  <span class="date">Last modified: 2024-03-12</span>
+  <span>Creator: <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.2 (<a href="https://orgmode.org">Org</a> mode 9.6.15)</span>
+</div>
+</div>
+</body>
+</html>
