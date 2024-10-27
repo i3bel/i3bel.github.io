@@ -55,7 +55,8 @@ languages:
 # ~~~~~~~~~
 paginate: 8 # 每页展示的文章数量，这个没找到文档，应该是主题自己设置的
 
-params:
+site:
+ params:
   defaultTheme: dark # 默认是暗色背景
   ShowShareButtons: false # 关闭分享的按钮
   ShowReadingTime: true # 展示预估的阅读时长
@@ -80,7 +81,8 @@ params:
       minMatchCharLength: 0
       # limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
       keys: ["title", "permalink", "summary", "content"]
-      includeMatches: true
+      includeMatches: true 
+
 
 
 site:
