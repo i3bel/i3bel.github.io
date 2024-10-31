@@ -33,7 +33,7 @@ languages:
           weight: 5
         - name: 分类
           pageRef: categories/
-          weight: 10
+          weight: 9
         - name: 标签
           pageRef: tags/
           weight: 10
@@ -53,10 +53,14 @@ languages:
 # ~~~~~~~~~
 # 主题的配置(基本上是)
 # ~~~~~~~~~
-pagination.pagerSize: 8 # 每页展示的文章数量，这个没找到文档，应该是主题自己设置的
+pagination:
+  pagerSize: 6 # 每页展示的文章数量，这个没找到文档，应该是主题自己设置的
 
 site:
  params:
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  description: "Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"
+  author: Sonny Calcr
   defaultTheme: dark # 默认是暗色背景
   ShowShareButtons: false # 关闭分享的按钮
   ShowReadingTime: true # 展示预估的阅读时长
@@ -67,10 +71,11 @@ site:
   ShowRssButtonInSectionTermList: true # RSS 相关
   ShowAllPagesInArchive: true # 在归档页面展示所有的页面
   ShowPageNums: true # 展示页面的页数
-  ShowToc: false# 展示文章详情页的目录
+  ShowToc: true # 展示文章详情页的目录
   comments: true # 评论
   images: ["https://i.postimg.cc/7hwBy7VS/calcr.png"] # 缺省的图片，比如，博客的封面
   DateFormat: "2006-01-02" # 这个时间是作者自己写的，只能这样写
+
  # 搜索
   fuseOpts:
       isCaseSensitive: false # 是否大小写敏感
@@ -101,5 +106,5 @@ Params:
 outputs:
   home:
     - HTML # 生成的静态页面
-   # - RSS # 这个其实无所谓
+    - RSS # 这个其实无所谓
     - JSON # necessary for search, 这里的配置修改好之后，一定要重新生成一下
