@@ -1,5 +1,5 @@
 baseURL: "https://i3bel.github.io/" # 主站的 URL
-title: isabel's Blog # 站点标题
+title: 南郭子綦 # 站点标题
 copyright: "[©2024 isabel's Blog](https://i3bel.github.io/)" # 网站的版权声明，通常显示在页脚
 theme: PaperMod # 主题
 languageCode: zh-cn # 语言
@@ -72,7 +72,7 @@ site:
   ShowAllPagesInArchive: true # 在归档页面展示所有的页面
   ShowPageNums: true # 展示页面的页数
   ShowToc: true # 展示文章详情页的目录
-  comments: true # 评论
+  #comments: true # 评论
   images: ["https://i.postimg.cc/7hwBy7VS/calcr.png"] # 缺省的图片，比如，博客的封面
   DateFormat: "2006-01-02" # 这个时间是作者自己写的，只能这样写
 
@@ -95,10 +95,10 @@ Params:
  # 首页的文章上方的一些信息  
  homeInfoParams:
     # 首页的 profile 内容
-    Title: "isabel小窝"
+    Title: "楚の隠者に南郭子綦"
     # 首页的 profile 内容
     Content: >
-      这里主要记录我的视频创作的一些补充说明材料。
+      「女（なんじ）は人籟（じんらい）を聞くも、未だ地籟（ちらい）を聞かず。地籟を聞くも天籟を聞かざるかな。」
 
   
 
