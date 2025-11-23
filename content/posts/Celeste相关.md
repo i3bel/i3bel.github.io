@@ -1,7 +1,7 @@
 +++
 title = 'Celeste相关'
 date = '2025-11-22T16:54:27+08:00'
-draft = true
+draft = false
 categories = ["tutorial "]
 showReadingTime = true
 ShowToc = true

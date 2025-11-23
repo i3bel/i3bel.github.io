@@ -1,7 +1,7 @@
 +++
 title = 'Hugo使用指南'
 date = '2025-11-19T16:02:20+08:00'
-draft = true
+draft = false
 categories = ["tutorial"]
 showReadingTime = true
 ShowToc = true
