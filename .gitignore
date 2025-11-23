@@ -23,7 +23,7 @@ _testmain.go
 *.test
 
 **/.DS_Store
-/public
+# /public
 .DS_Store
 .hugo_build.lock
 resources/_gen/
