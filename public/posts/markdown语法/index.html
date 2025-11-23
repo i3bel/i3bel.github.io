@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Markdown语法 | 姥爷的车库</title>
+<meta name="keywords" content="Markdown">
+<meta name="description" content="教程、技术文档、软件使用、工具说明">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/markdown%E8%AF%AD%E6%B3%95/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.e9b16f4ded12592c3b12f5219ed14759426947fb4155f1e91faad11d4918175a.css" integrity="sha256-6bFvTe0SWSw7EvUhntFHWUJpR/tBVfHpH6rRHUkYF1o=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="http://localhost:1313/posts/markdown%E8%AF%AD%E6%B3%95/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="姥爷的车库 (Alt + H)">姥爷的车库</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="姥爷的车库">
+                    <span>首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives/" title="归档">
+                    <span>归档</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories/" title="分类">
+                    <span>分类</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="标签">
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="搜索">
+                    <span>搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="关于">
+                    <span>关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">主页</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Markdown语法
+      <span class="entry-hint" title="Draft">
+        <svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 -960 960 960" fill="currentColor">
+          <path
+            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+        </svg>
+      </span>
+    </h1>
+    <div class="post-description">
+      教程、技术文档、软件使用、工具说明
+    </div>
+    <div class="post-meta"><span title='2025-11-19 16:09:51 +0800 CST'>十一月 19, 2025</span>&nbsp;·&nbsp;8 分钟
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e6%a0%87%e9%a2%98-1" aria-label="标题 1">标题 1</a><ul>
+                        
+                <li>
+                    <a href="#%e6%a0%87%e9%a2%98-2" aria-label="标题 2">标题 2</a><ul>
+                        
+                <li>
+                    <a href="#%e6%a0%87%e9%a2%98-3" aria-label="标题 3">标题 3</a><ul>
+                        
+                <li>
+                    <a href="#%e6%a0%87%e9%a2%98-4" aria-label="标题 4">标题 4</a><ul>
+                        
+                <li>
+                    <a href="#%e6%a0%87%e9%a2%98-5" aria-label="标题 5">标题 5</a><ul>
+                        
+                <li>
+                    <a href="#%e6%a0%87%e9%a2%98-6" aria-label="标题 6">标题 6</a></li></ul>
+                </li></ul>
+                </li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%96%87%e6%9c%ac" aria-label="文本">文本</a></li>
+                <li>
+                    <a href="#%e5%88%97%e8%a1%a8" aria-label="列表">列表</a></li>
+                <li>
+                    <a href="#%e6%ae%b5%e8%90%bd" aria-label="段落">段落</a></li>
+                <li>
+                    <a href="#%e9%93%be%e6%8e%a5" aria-label="链接">链接</a></li>
+                <li>
+                    <a href="#%e8%84%9a%e6%b3%a8" aria-label="脚注">脚注</a></li>
+                <li>
+                    <a href="#%e5%9b%be%e7%89%87" aria-label="图片">图片</a></li>
+                <li>
+                    <a href="#%e8%a1%a8%e6%a0%bc" aria-label="表格">表格</a></li>
+                <li>
+                    <a href="#%e4%bb%a3%e7%a0%81" aria-label="代码">代码</a></li></ul>
+                </li>
+                <li>
+                    <a href="#obsidian%e7%89%b9%e6%9c%89%e6%88%96%e5%a2%9e%e5%bc%ba%e7%9a%84markdown-%e5%8a%9f%e8%83%bd" aria-label="[[Obsidian]]特有或增强的Markdown 功能">[[Obsidian]]特有或增强的Markdown 功能</a><ul>
+                        
+                <li>
+                    <a href="#%e5%8f%8c%e9%93%be" aria-label="双链">双链</a></li>
+                <li>
+                    <a href="#%e6%a0%87%e7%ad%be" aria-label="标签">标签</a></li>
+                <li>
+                    <a href="#%e6%95%b0%e5%ad%a6%e4%b8%8e%e5%85%ac%e5%bc%8f" aria-label="数学与公式">数学与公式</a></li>
+                <li>
+                    <a href="#%e5%bc%95%e7%94%a8%e5%9d%97-callouts" aria-label="引用块 (Callouts)">引用块 (Callouts)</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><hr>
+<p>title: Markdown语法
+aliases:</p>
+<ul>
+<li>MD语法</li>
+<li>Obsidian Markdown</li>
+<li>Markdown教程
+tags:</li>
+<li>Markdown语法</li>
+<li>标记语言</li>
+<li>Obsidian</li>
+</ul>
+<hr>
+<p><strong>语法速查表</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">功能 (Feature)</th>
+          <th style="text-align: left">Markdown 语法 (Syntax)</th>
+          <th style="text-align: left">效果预览 (Result)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">一级标题</td>
+          <td style="text-align: left"><code># 标题内容</code></td>
+          <td style="text-align: left">最大的标题</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">二级标题</td>
+          <td style="text-align: left"><code>## 标题内容</code></td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">三级标题</td>
+          <td style="text-align: left"><code>### 标题内容</code></td>
+          <td style="text-align: left">(依此类推，可到六级)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">&mdash;</td>
+          <td style="text-align: left">&mdash;</td>
+          <td style="text-align: left">&mdash;</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>加粗</strong></td>
+          <td style="text-align: left"><code>**需要加粗的文字**</code></td>
+          <td style="text-align: left"><strong>需要加粗的文字</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><em>斜体</em></td>
+          <td style="text-align: left"><code>*需要倾斜的文字*</code></td>
+          <td style="text-align: left"><em>需要倾斜的文字</em></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><em><strong>加粗并斜体</strong></em></td>
+          <td style="text-align: left"><code>***又粗又斜的文字***</code></td>
+          <td style="text-align: left"><em><strong>又粗又斜的文字</strong></em></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><del>删除线</del></td>
+          <td style="text-align: left"><code>~~被删除的文字~~</code></td>
+          <td style="text-align: left"><del>被删除的文字</del></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">&mdash;</td>
+          <td style="text-align: left">&mdash;</td>
+          <td style="text-align: left">&mdash;</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">无序列表</td>
+          <td style="text-align: left"><code>- 列表项</code> 或 <code>* 列表项</code></td>
+          <td style="text-align: left">• 列表项</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">有序列表</td>
+          <td style="text-align: left"><code>1. 列表项一</code><!-- raw HTML omitted --><code>2. 列表项二</code></td>
+          <td style="text-align: left">1. 列表项一<!-- raw HTML omitted -->2. 列表项二</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">任务列表（待办）</td>
+          <td style="text-align: left"><code>- [ ] 未完成的任务</code><!-- raw HTML omitted --><code>- [x] 已完成的任务</code></td>
+          <td style="text-align: left">☐ 未完成的任务<!-- raw HTML omitted -->☑ 已完成的任务</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">&mdash;</td>
+          <td style="text-align: left">&mdash;</td>
+          <td style="text-align: left">&mdash;</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">&gt; 引用</td>
+          <td style="text-align: left"><code>&gt; 这是一段引用的文字</code></td>
+          <td style="text-align: left">&gt; 这是一段引用的文字</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>行内代码</code></td>
+          <td style="text-align: left"><code>`code`</code></td>
+          <td style="text-align: left">用于突出显示单个变量或命令</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">代码块</td>
+          <td style="text-align: left"><code>```python `&lt;br&gt;`print(&quot;Hello, World!&quot;)`&lt;br&gt;` ```</code></td>
+          <td style="text-align: left">用于显示多行代码片段</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">&mdash;</td>
+          <td style="text-align: left">&mdash;</td>
+          <td style="text-align: left">&mdash;</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">链接</td>
+          <td style="text-align: left"><code>[链接显示的文字](https://obsidian.md)</code></td>
+          <td style="text-align: left"><a href="https://obsidian.md">链接显示的文字</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">图片</td>
+          <td style="text-align: left"><code>![图片的替代文字](图片链接或路径)</code></td>
+          <td style="text-align: left">(在笔记中会直接显示图片)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">水平分割线</td>
+          <td style="text-align: left"><code>---</code> 或 <code>***</code></td>
+          <td style="text-align: left">一条横跨整个页面的线</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote>
+<p>[!note]+ 标题</p>
+<pre tabindex="0"><code>注意：所有符号都是英文输入法下的符号
+井号加空格，几个井号就是几级标题，一级标题字体最大。
+# 一级标题
+## 二级标题
+</code></pre></blockquote>
+<h1 id="标题-1">标题 1<a hidden class="anchor" aria-hidden="true" href="#标题-1">#</a></h1>
+<h2 id="标题-2">标题 2<a hidden class="anchor" aria-hidden="true" href="#标题-2">#</a></h2>
+<h3 id="标题-3">标题 3<a hidden class="anchor" aria-hidden="true" href="#标题-3">#</a></h3>
+<h4 id="标题-4">标题 4<a hidden class="anchor" aria-hidden="true" href="#标题-4">#</a></h4>
+<h5 id="标题-5">标题 5<a hidden class="anchor" aria-hidden="true" href="#标题-5">#</a></h5>
+<h6 id="标题-6">标题 6<a hidden class="anchor" aria-hidden="true" href="#标题-6">#</a></h6>
+<hr>
+<blockquote>
+<p>[!note]+ 文本</p>
+<pre tabindex="0"><code>注意：所有符号都是英文输入法下的符号
+两个星号是加粗：**我是加粗字体**
+一个型号是斜体：*我是斜体*
+三个星号，或者三个下划线是粗斜体：***我是粗斜体***，___我是粗斜体___
+两个等号是高亮：==我是高亮==
+两个波浪线是删除：~~我是删除~~
+</code></pre></blockquote>
+<h2 id="文本">文本<a hidden class="anchor" aria-hidden="true" href="#文本">#</a></h2>
+<p>普通文本</p>
+<p><strong>段落粗体文本</strong></p>
+<p><em>段落斜体文本</em></p>
+<p>==高亮==</p>
+<p><del>删除</del></p>
+<p><em><strong>粗斜体</strong></em>
+<em><strong>粗斜体</strong></em>
+<del>删除</del></p>
+<hr>
+<blockquote>
+<p>[!note]+ 列表</p>
+<pre tabindex="0"><code>注意：所有符号都是英文输入法下的符号
+无序列表：减号/加号/星号 + 空格，三个符号哪个都可以，但是建议用减号。 - 列表项1
+有序列表：数字+点+空格：1. 列表项
+输入完一个列表项后，打回车可以继续下一个列表项
+列表嵌套：使用tab可以让列表缩进，使用shift+tab可以取消缩进。
+
+任务列表：方括号里面一个空格或者叉，空格代表未完成，叉代表已完成。
+[x] 任务 1
+[ ] 任务 2
+Task插件可以使已完成的任务后面自动显示完成时间。
+
+任务列表并非原始的、John Gruber 定义的 Markdown 标准语法。然而，它已经成为一种被广泛接受和支持的 Markdown 扩展语法，许多现代的 Markdown 编辑器和笔记应用也都采纳了这种任务列表语法，因为它非常直观和实用。
+</code></pre></blockquote>
+<h2 id="列表">列表<a hidden class="anchor" aria-hidden="true" href="#列表">#</a></h2>
+<p><strong>无序列表</strong></p>
+<ul>
+<li>列表项 1</li>
+<li>列表项 2
+<ul>
+<li>列表项 2.1</li>
+<li>列表项 2.2</li>
+</ul>
+</li>
+<li>列表项 3</li>
+</ul>
+<p><strong>有序列表</strong></p>
+<ol>
+<li>列表项 a</li>
+<li>列表项 b
+<ol>
+<li>列表项 b1</li>
+<li>列表项 b2</li>
+</ol>
+</li>
+<li>列表项 c</li>
+</ol>
+<p><strong>任务列表</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> 任务 1</li>
+<li><input disabled="" type="checkbox"> 任务 2
+<ul>
+<li><input disabled="" type="checkbox"> 嵌套任务 2.1</li>
+<li><input disabled="" type="checkbox"> 嵌套任务 2.2</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"> 任务 3</li>
+</ul>
+<hr>
+<h2 id="段落">段落<a hidden class="anchor" aria-hidden="true" href="#段落">#</a></h2>
+<blockquote>
+<p>[!note]+ 段落</p>
+<pre tabindex="0"><code>注意：所有符号都是英文输入法下的符号
+引用：大于号+空格：&gt; 我是引用
+嵌套引用：多个大于号，每多一个大于号，代表深一层嵌套
+分割线：三个减号然后回车：---
+强制换行 (Soft Break / Line Break)：在同一段落内强制开始一个新行，而不是开始一个新段落。使用方法：在一行的末尾输入两个或更多的空格，然后按回车键。
+备选方法：(如果 Markdown 解析器支持 HTML)：直接使用 HTML 的 &lt;br&gt; 标签。
+</code></pre></blockquote>
+<p>引用语法：</p>
+<blockquote>
+<p>引用了一段名人名言</p>
+<blockquote>
+<p>嵌套引用</p>
+<blockquote>
+<p>俄罗斯套娃</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>强制换行：</p>
+<pre><code>这是第一行文字（假设末尾有两个空格）   
+第二行
+</code></pre>
+<p>分割线：</p>
+<hr>
+<blockquote>
+<p>[!note]+ 链接</p>
+<pre tabindex="0"><code>注意：所有符号都是英文输入法下的符号
+[普通链接](https://www.bing.com/)
+[普通链接带标题](https://www.bing.com/ &#34;普通链接带标题&#34;)
+直接链接：&lt;https://github.com&gt;
+锚点链接：1. 在文稿起草阶段，还没确定具体网址，但可以先给出网址标题。2. 同一篇文章需要重复出现同一个网址时.
+使用方法：[网址标题][网址名]
+然后在其他地方（一般是文章最后）给出网址名的地址：[网址名]:https://www.bing.com/
+[锚点链接][anchor-id]
+[anchor-id]: http://www.this-anchor-link.com/
+</code></pre></blockquote>
+<h2 id="链接">链接<a hidden class="anchor" aria-hidden="true" href="#链接">#</a></h2>
+<p><a href="https://www.bing.com/">普通链接</a></p>
+<p>直接链接：<a href="https://github.com">https://github.com</a></p>
+<p><a href="http://www.this-anchor-link.com/">锚点链接</a></p>
+<hr>
+<blockquote>
+<p>[!note]+ 脚注</p>
+<pre tabindex="0"><code>注意：所有符号都是英文输入法下的符号
+方括号内，上箭头，外加脚注名称（一般为标号）
+本句话要加脚注[^01]
+[^01]:这是解释脚注 01的内容
+</code></pre></blockquote>
+<h2 id="脚注">脚注<a hidden class="anchor" aria-hidden="true" href="#脚注">#</a></h2>
+<ol>
+<li>要添加脚注的话<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></li>
+<li>第二个要添加脚注的话<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></li>
+</ol>
+<hr>
+<blockquote>
+<p>[!note]+ 图片</p>
+<pre tabindex="0"><code>注意：所有符号都是英文输入法下的符号
+图片语法与链接类似，只是在前面多一个感叹号!。
+示例：![替代文本](图片路径 &#34;可选的图片标题&#34;)
+替代文本：当图片无法显示时展示的文字，也有助于屏幕阅读器。
+图片路径：可以是网络图片的 URL，也可以是本地文件的相对或绝对路径。
+可选的图片标题：鼠标悬停在图片上时显示的提示文字。
+
+带链接的图片 (Clickable Images)：
+使用方法：将图片的 Markdown 语法作为链接的“链接文本”部分。
+[![替代文本](图片路径)](链接地址)
+[![可爱的猫咪](/assets/obsidian.jpg)](https://www.bing.com/)
+点击即可跳转到bing.com，哪怕图片找不到，点击依然跳转到链接。
+</code></pre></blockquote>
+<h2 id="图片">图片<a hidden class="anchor" aria-hidden="true" href="#图片">#</a></h2>
+<p><img loading="lazy" src="https://obsidian.md/images/obsidian-logo-gradient.svg" alt="Obsidian Logo"  title="Obsidian Logo"  />
+</p>
+<p><a href="https://www.bing.com/"><img loading="lazy" src="/assets/obsidian.jpg" alt="可爱的猫咪"  />
+</a></p>
+<hr>
+<blockquote>
+<p>[!note]+ 表格</p>
+<pre tabindex="0"><code>注意：所有符号都是英文输入法下的符号
+表头： 用竖线 | 分隔单元格内容。
+分隔行： 用竖线 | 分隔，并使用至少三个减号 - 来创建每个单元格的分隔线。可以通过在减号前后添加冒号 : 来控制该列的对齐方式：
+左对齐 (默认)：:--- (或 :-)
+居中对齐：:---: (或 :-:)
+右对齐：---: (或 -:)
+内容行 (Content Rows): 用竖线 | 分隔单元格内容。
+最外层的竖线 | 是可选的，但为了美观和清晰，建议加上。
+</code></pre></blockquote>
+<h2 id="表格">表格<a hidden class="anchor" aria-hidden="true" href="#表格">#</a></h2>
+<table>
+  <thead>
+      <tr>
+          <th>名字</th>
+          <th>姓氏</th>
+          <th>电子邮件</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>John</td>
+          <td>Doe</td>
+          <td><a href="mailto:john.doe@example.com">john.doe@example.com</a></td>
+      </tr>
+      <tr>
+          <td>Muffin</td>
+          <td>Poppies</td>
+          <td><a href="mailto:muffin.poppies@example.com">muffin.poppies@example.com</a></td>
+      </tr>
+      <tr>
+          <td>Jane</td>
+          <td>Doe</td>
+          <td><a href="mailto:jane.doe@example.com">jane.doe@example.com</a></td>
+      </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">左对齐</th>
+          <th style="text-align: center">居中对齐</th>
+          <th style="text-align: right">右对齐</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">AAA</td>
+          <td style="text-align: center">BBB</td>
+          <td style="text-align: right">CCC</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<blockquote>
+<p>[!note]+ 代码</p>
+<pre tabindex="0"><code>注意：所有符号都是英文输入法下的符号
+行内代码用一个点包裹，代码块用三个点包裹，点是键盘上数字1左边的点。
+代码块可以指定代码语言，比如python、javascript，直接加在三个点后面即可。
+对于 Markdown 中的语言标识符（例如 javascript），通常不区分大小写。这意味着 javascript、JavaScript 和 JAVASCRIPT 应该产生相同的语法高亮效果。不过，最佳实践是使用小写形式。但这也可能取决于具体的 Markdown 解析器。
+
+Mermaid代码可以生成各种图标，感兴趣的可以单独学习Mermaid语法。
+</code></pre></blockquote>
+<h2 id="代码">代码<a hidden class="anchor" aria-hidden="true" href="#代码">#</a></h2>
+<p><strong>行内代码</strong>
+变量 <code>myvar</code> 被设置为值 <code>100</code>。</p>
+<p><strong>代码块</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">calc</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="mi">3</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">test</span> <span class="o">=</span> <span class="n">calc</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+</span></span></code></pre></div><p>Mermaid代码：</p>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">graph TD
+    A[开始] --&gt; B(处理);
+    B --&gt; C{条件?};
+    C -- 是 --&gt; D[操作1];
+    C -- 否 --&gt; E[操作2];
+    D --&gt; F[结束];
+    E --&gt; F;
+</code></pre><h1 id="obsidian特有或增强的markdown-功能">[[Obsidian]]特有或增强的Markdown 功能<a hidden class="anchor" aria-hidden="true" href="#obsidian特有或增强的markdown-功能">#</a></h1>
+<blockquote>
+<p>[!note]+ 双链</p>
+<pre tabindex="0"><code>注意：所有符号都是英文输入法下的符号
+1. [[笔记文件名]]：链接到仓库内的另一篇笔记。使用方法：用双层方括号 [[]] 包裹笔记的文件名 (无需 .md 后缀)。示例：[[我的待办事项]]
+2. [[笔记文件名#标题名]]：链接到另一篇笔记中的特定标题。使用方法：在文件名后加 # 和目标标题的文本。示例：[[Markdown 语法详解#10. 表格]]
+3. [[笔记文件名|自定义显示文本]]：链接到另一篇笔记，但显示自定义的链接文字。使用方法：在文件名后加 | 和希望显示的文本。示例： [[2024-05-27 Daily Note|昨天的日记]]
+4. ![[笔记文件名]]：将另一篇笔记的全部内容嵌入到当前笔记中。使用方法：与图片嵌入类似，但使用双层方括号，并以 ! 开头。示例： ![[常用代码片段]]
+5. ![[笔记文件名#标题名]]：将另一篇笔记中特定标题下的内容嵌入。使用方法：在文件名后跟特定标题。示例： ![[会议记录#行动项]]
+6. ![[笔记文件名#^块ID]]：嵌入笔记中被 \^块ID 标记的特定块（段落、列表项等）。使用方法：先在源笔记中，在你想要引用的段落或列表项的末尾添加一个块引用ID，格式为 ^yourBlockID (例如 ^task123)。然后在目标笔记中用 ![[源笔记文件名#^yourBlockID]] 来嵌入它。示例：在 &#34;任务列表.md&#34; 中： - [ ] 完成报告 ^reportTask，然后在当前笔记中嵌入： ![[任务列表#^reportTask]]
+</code></pre></blockquote>
+<h2 id="双链">双链<a hidden class="anchor" aria-hidden="true" href="#双链">#</a></h2>
+<p>注意：这里使用反斜杠，是为了让Obsidian不把他识别为一个双链，否则Dashboard就会被认为是一个双链，从而在关系图谱中看到这个Dashboard节点。
+内部链接: [[Dashboard]]</p>
+<hr>
+<blockquote>
+<p>[!note]+ 标签</p>
+<pre tabindex="0"><code>注意：所有符号都是英文输入法下的符号
+以井号 # 开头，后跟标签名称。标签名不能包含空格，可以用 - 或 _ 连接多词标签 (如 #读书笔记 或 #project-alpha)。标签可以放在笔记的任意位置，包括 YAML Frontmatter 中的 tags 字段。
+</code></pre></blockquote>
+<h2 id="标签">标签<a hidden class="anchor" aria-hidden="true" href="#标签">#</a></h2>
+<p>标签: #dashboard #notes</p>
+<hr>
+<blockquote>
+<p>[!note]+ 数学与公式</p>
+<pre tabindex="0"><code>注意：所有符号都是英文输入法下的符号
+Obsidian 内置了对 KaTeX 的支持，用于渲染 LaTeX 数学公式。
+$行内数学公式$：将公式嵌入到文本行中。
+使用方法：用一对美元符号 $ 包裹 LaTeX 公式。
+$$块级数学公式$$：将公式在单独的块中居中显示。
+使用方法：两对美元符号包裹
+</code></pre></blockquote>
+<h2 id="数学与公式">数学与公式<a hidden class="anchor" aria-hidden="true" href="#数学与公式">#</a></h2>
+<p>$$g=g_0 \frac{R^2}{\left( R + z \right)^2} = \frac{g_0}{\left(1 + z/R \right)^2} $$</p>
+<p>其中,
+$g$ = 指定距离处的相对引力。
+$g_0$ = [[Surface Gravity |物体的表面引力]]。
+$R$ = 物体的半径。(通常是物体的赤道半径)。
+$z$ = 物体表面以上的距离。</p>
+<hr>
+<blockquote>
+<p>[!note]+ 引用块</p>
+<pre tabindex="0"><code>注意：所有符号都是英文输入法下的符号
+使用方法: 引用块 (&gt;) 之后紧跟 [!类型]。类型可以是 note, abstract, info, todo, tip, success, question, warning, failure, danger, bug, example, quote 等。
+可选标题**: 在 [!类型] 后可以添加自定义标题文本。
+可折叠**: 在类型后加减号 - (如 [!INFO]-) 可使标注默认折叠，加加号 + (如 [!INFO]+) 可使其默认展开 (通常默认就是展开)。
+</code></pre></blockquote>
+<h2 id="引用块-callouts">引用块 (Callouts)<a hidden class="anchor" aria-hidden="true" href="#引用块-callouts">#</a></h2>
+<blockquote>
+<p>[!note]+ 笔记引用块
+这是一个笔记引用块&hellip;</p>
+</blockquote>
+<blockquote>
+<p>[!warning]- 警示引用块
+这是一个警示引用块&hellip;</p>
+</blockquote>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>脚注内容一&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>脚注内容二&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/markdown/">Markdown</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99%E5%88%86%E4%BA%AB/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>常用网站分享</span>
+  </a>
+  <a class="next" href="http://localhost:1313/posts/hugo%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Hugo使用指南</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span><a href="https://i3bel.github.io/">©2026 isabel&rsquo;s Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
