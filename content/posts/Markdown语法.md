@@ -2,7 +2,7 @@
 title = 'Markdown语法'
 date = '2025-11-19T16:09:51+08:00'
 draft = false
-categories = ["tutorial"]
+categories = ["工具"]
 tags = ["Markdown"]
 showReadingTime = true
 ShowToc = true

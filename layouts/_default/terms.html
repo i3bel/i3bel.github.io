@@ -1,0 +1,38 @@
+{{- define "main" }}
+
+{{- if .Title }}
+<header class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{- if .Description }}
+    <div class="post-description">
+        {{ .Description }}
+    </div>
+    {{- end }}
+</header>
+{{- end }}
+
+{{/* 标签列表，奇数显示虚线，偶数不显示 */}}
+<div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem; font-size: 1.5rem;">
+    {{- $type := .Type }}
+    {{- range $index, $term := .Data.Terms.Alphabetical }}
+        {{- $name := $term.Name }}
+        {{- $count := $term.Count }}
+        {{- with site.GetPage (printf "/%s/%s" $type $name) }}
+        <div style="display: flex; align-items: center;">
+            <span style="flex-grow: 1; display: flex; align-items: center;">
+                <a href="{{ .Permalink }}" style="text-decoration: none; color: inherit;">
+                    {{ .Name }}
+                </a>
+                {{- if modBool $index 2 }}{{/* 奇数索引显示虚线 */}}
+                <span style="flex-grow: 1; border-bottom: 1px dashed currentColor; margin: 0 0.5rem;"></span>
+                {{- else }}{{/* 偶数索引不显示虚线 */}}
+                <span style="flex-grow: 1; margin: 0 0.5rem;"></span>
+                {{- end }}
+            </span>
+            <span style="font-weight: bold;">{{ $count }}</span>
+        </div>
+        {{- end }}
+    {{- end }}
+</div>
+
+{{- end }}{{/* end main */}}

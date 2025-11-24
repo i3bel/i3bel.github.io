@@ -1,0 +1,63 @@
+{{- $headers := findRE "<h[1-6].*?>(.|\n])+?</h[1-6]>" .Content -}}
+{{- $has_headers := ge (len $headers) 1 -}}
+{{- if $has_headers -}}
+<div class="toc">
+    <details {{if (.Param "TocOpen") }} open{{ end }}>
+        <summary style="list-style: none; -webkit-appearance: none; appearance: none; cursor: pointer;">
+            <span class="toc-icon">+</span>
+            <span class="details">{{- i18n "toc" | default "Table of Contents" }}</span>
+        </summary>
+
+        <div class="inner">
+            {{- if (.Param "UseHugoToc") }}
+                {{- .TableOfContents -}}
+            {{- else }}
+                {{- $largest := 6 -}}
+                {{- range $headers -}}
+                    {{- $headerLevel := index (findRE "[1-6]" . 1) 0 -}}
+                    {{- $headerLevel := len (seq $headerLevel) -}}
+                    {{- if lt $headerLevel $largest -}}
+                        {{- $largest = $headerLevel -}}
+                    {{- end -}}
+                {{- end -}}
+
+                <ul>
+                    {{- range $i, $header := $headers -}}
+                        {{- $headerLevel := index (findRE "[1-6]" . 1) 0 -}}
+                        {{- $headerLevel := len (seq $headerLevel) -}}
+
+                        {{- $id := index (findRE "(id=\"(.*?)\")" $header 9) 0 }}
+                        {{- $cleanedID := replace (replace $id "id=\"" "") "\"" "" }}
+                        {{- $header := replaceRE "<h[1-6].*?>((.|\n])+?)</h[1-6]>" "$1" $header -}}
+
+                        <li>
+                            <a href="#{{- $cleanedID -}}" aria-label="{{- $header | plainify | safeHTML -}}">
+                                {{- $header | plainify -}}
+                            </a>
+                        </li>
+                    {{- end -}}
+                </ul>
+            {{- end }}
+        </div>
+    </details>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const summaries = document.querySelectorAll(".toc summary");
+    summaries.forEach(summary => {
+        const icon = summary.querySelector(".toc-icon");
+
+        // 初始化符号
+        icon.textContent = summary.parentNode.open ? "−" : "+";
+
+        // 点击切换符号
+        summary.addEventListener("click", function() {
+            setTimeout(() => { // 用 setTimeout 确保状态已经切换
+                icon.textContent = summary.parentNode.open ? "−" : "+";
+            }, 0);
+        });
+    });
+});
+</script>
+{{- end }}

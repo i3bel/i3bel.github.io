@@ -2,7 +2,7 @@
 title = 'Celeste相关'
 date = '2025-11-22T16:54:27+08:00'
 draft = false
-categories = ["tutorial "]
+categories = ["工具"]
 showReadingTime = true
 ShowToc = true
 ShowPostNavLinks = true

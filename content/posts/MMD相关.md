@@ -2,7 +2,7 @@
 title = 'MMD相关'
 date = '2025-11-22T19:55:33+08:00'
 draft = false
-categories = ["collection"]
+categories = ["收藏"]
 showReadingTime = true
 ShowToc = true
 ShowPostNavLinks = true

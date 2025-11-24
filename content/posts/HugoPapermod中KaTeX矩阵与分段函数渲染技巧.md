@@ -2,7 +2,7 @@
 title = 'HugoPapermod中KaTeX矩阵与分段函数渲染技巧'
 date = '2025-11-23T15:23:42+08:00'
 draft = false
-categories = ["tutorial "]
+categories = ["工具"]
 showReadingTime = true
 ShowToc = true
 ShowPostNavLinks = true

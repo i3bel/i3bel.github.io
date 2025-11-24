@@ -2,7 +2,7 @@
 title = 'H'
 date = '2025-11-20T15:17:36+08:00'
 draft = false
-categories = ["collection "]
+categories = ["收藏"]
 showReadingTime = true
 ShowToc = true
 ShowPostNavLinks = true
