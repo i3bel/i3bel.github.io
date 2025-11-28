@@ -5,7 +5,7 @@
 </footer>
 
 {{- if (not site.Params.disableScrollToTop) }}
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+<a href="#top" aria-label="go to top" title="Go to Top" class="top-link" id="top-link">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
         <path d="M12 6H0l6-6z" />
     </svg>
@@ -13,14 +13,35 @@
 
 <script>
 var mybutton = document.getElementById("top-link");
-window.onscroll = function () {
-    if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+window.addEventListener("scroll", function () {
+    if (document.documentElement.scrollTop > 800) {
         mybutton.style.visibility = "visible";
         mybutton.style.opacity = "1";
     } else {
         mybutton.style.visibility = "hidden";
         mybutton.style.opacity = "0";
     }
-};
+});
+</script>
+{{- end }}
+
+<!-- Restore PaperMod's original theme toggle script -->
+{{- if (not site.Params.disableThemeToggle) }}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("theme-toggle");
+
+    if (!btn) return;
+
+    btn.addEventListener("click", () => {
+        if (document.body.classList.contains("dark")) {
+            document.body.classList.remove("dark");
+            localStorage.setItem("pref-theme", "light");
+        } else {
+            document.body.classList.add("dark");
+            localStorage.setItem("pref-theme", "dark");
+        }
+    });
+});
 </script>
 {{- end }}
