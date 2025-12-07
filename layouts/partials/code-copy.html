@@ -1,0 +1,50 @@
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll("pre > code").forEach((codeBlock) => {
+    const button = document.createElement("button");
+    button.className = "copy-btn";
+    button.type = "button";
+    button.innerText = "拓"; // 默认文字
+
+    button.addEventListener("click", () => {
+      const text = codeBlock.innerText;
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(() => {
+          button.innerText = "成!"; // 点击后文字
+          setTimeout(() => button.innerText = "拓", 2000); // 恢复默认
+        });
+      } else {
+        const range = document.createRange();
+        range.selectNodeContents(codeBlock);
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+        document.execCommand("copy");
+        sel.removeAllRanges();
+        button.innerText = "成!";
+        setTimeout(() => button.innerText = "拓", 2000);
+      }
+    });
+
+    const pre = codeBlock.parentNode;
+    pre.style.position = "relative";
+    button.style.position = "absolute";
+    button.style.top = "0.25em";
+    button.style.right = "0.25em";
+    button.style.padding = "0.2em 0.5em";
+    button.style.fontSize = "0.75em";
+    button.style.cursor = "pointer";
+    button.style.border = "none";
+    button.style.background = "#4a90e2";
+    button.style.color = "#fff";
+    button.style.borderRadius = "3px";
+
+    pre.appendChild(button);
+  });
+});
+</script>
+
+<style>
+pre { position: relative; }
+.copy-btn:hover { background: #357ABD; }
+</style>

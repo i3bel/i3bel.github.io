@@ -5,3 +5,4 @@ contact_links:
     about: Please ask and answer questions/doubts here, DO NOT open an issue for questions.
 params:
   math: true
+  ShowCodeCopyButtons: true
