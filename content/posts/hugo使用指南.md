@@ -11,12 +11,17 @@ description = '教程、技术文档、软件使用、工具说明'
 +++
 
 # 部署与新建文章
-
+```
 hugo server -D
-
+```
+```
 hugo new posts/1.md
-
+```
 ## 如果我在本地部署，让网络监听，手机访问我要输入
-
+```
 hugo server --bind 0.0.0.0 --baseURL http://192.168.1.7:1313/
-
+```
+# Mac查看本机ip
+```
+ipconfig getifaddr en0
+```
