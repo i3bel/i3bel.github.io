@@ -2,7 +2,7 @@
 title = 'B站直播弹幕推送给iPhone配置'
 date = '2025-12-20T15:25:04+08:00'
 draft = false
-categories = ["1", "2"]
+categories = ["工具"]
 showReadingTime = true
 ShowToc = true
 ShowPostNavLinks = true
