@@ -1,29 +1,49 @@
-# Compiled Object files, Static and Dynamic libs (Shared Objects)
-*.o
-*.a
-*.so
+# Dependencies
+node_modules/
 
-# Folders
-_obj
-_test
+# Build output
+dist/
+**/.vitepress/cache/
+**/.vitepress/dist/
 
-# Architecture specific extensions/prefixes
-*.[568vq]
-[568vq].out
+# IDE
+.idea/
+*.swp
+*.swo
+*~
 
-*.cgo1.go
-*.cgo2.c
-_cgo_defun.c
-_cgo_gotypes.go
-_cgo_export.*
-
-_testmain.go
-
-*.exe
-*.test
-
-**/.DS_Store
-/public
+# OS
 .DS_Store
-.hugo_build.lock
-resources/_gen/
+Thumbs.db
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Vite
+vite.config.ts.timestamp-*
+
+# claude
+.claude/
+.agents/
+
+# skills lock
+skills-lock.json
+
+# vscode
+.vscode/
+
+# HyperFrames
+.hyperframes/
+covers/
+output.mp4
+index.html
+
+
+项目介绍视频稿.md
+
