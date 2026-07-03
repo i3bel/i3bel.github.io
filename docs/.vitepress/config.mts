@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: 'Wwweinuo',
+  title: 'i3bel',
   description: '个人技术博客 - 记录学习与思考',
   lang: 'zh-CN',
   base: '/',
@@ -25,14 +25,15 @@ export default defineConfig({
       { text: 'Blog', link: '/blog/' },
       { text: 'Archives', link: '/archives/' },
       { text: 'Tags', link: '/tags/' },
+      { text: '猜你想找', link: '/猜你想找/' },
       { text: 'Friends', link: '/friends/' },
       { text: 'About', link: '/about/' },
     ],
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/Wwweinuo' },
+      { icon: 'github', link: 'https://github.com/i3bel' },
     ],
     footer: {
-      copyright: `© ${new Date().getFullYear()} Wwweinuo`,
+      copyright: `© ${new Date().getFullYear()} i3bel`,
     },
     docFooter: {
       prev: '上一篇',

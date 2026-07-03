@@ -1,7 +1,7 @@
 {
-  "name": "github.io",
+  "name": "i3bel.github.io",
   "version": "1.0.0",
-  "description": "Personal tech blog powered by VitePress",
+  "description": "Personal notes blog powered by VitePress",
   "type": "module",
   "scripts": {
     "dev": "vitepress dev docs",
@@ -10,9 +10,10 @@
   },
   "keywords": [
     "blog",
-    "vitepress"
+    "vitepress",
+    "notes"
   ],
-  "author": "Wwweinuo",
+  "author": "i3bel",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^25.9.1",

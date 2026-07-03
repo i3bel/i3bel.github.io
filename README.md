@@ -1,10 +1,12 @@
-# Wwweinuo's Blog
+# i3bel's Notes
 
-![GitHub Repo stars](https://img.shields.io/github/stars/Wwweinuo/Wwweinuo.github.io?style=social)
-![GitHub last commit](https://img.shields.io/github/last-commit/Wwweinuo/Wwweinuo.github.io)
-![License](https://img.shields.io/github/license/Wwweinuo/Wwweinuo.github.io)
+![GitHub Repo stars](https://img.shields.io/github/stars/i3bel/i3bel.github.io?style=social)
+![GitHub last commit](https://img.shields.io/github/last-commit/i3bel/i3bel.github.io)
+![License](https://img.shields.io/github/license/i3bel/i3bel.github.io)
 
-基于 [VitePress](https://vitepress.dev) 构建的个人技术博客，部署在 GitHub Pages。
+基于 [VitePress](https://vitepress.dev) 构建的个人笔记博客，部署在 GitHub Pages。
+
+说实话，这个博客用到的技术栈我一个也不会，但这不妨碍我记录和分享。
 
 ## 技术栈
 
@@ -65,7 +67,7 @@ summary: 文章摘要，用于列表页展示
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=Wwweinuo/Wwweinuo.github.io&type=Date)](https://star-history.com/#Wwweinuo/Wwweinuo.github.io&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=i3bel/i3bel.github.io&type=Date)](https://star-history.com/#i3bel/i3bel.github.io&Date)
 
 ## License
 
