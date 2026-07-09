@@ -57,8 +57,8 @@ async function onFilesSelected(e) {
 
   viewerInstance = createMangaViewer(viewerEl.value, {
     manga: { id: 'local-manga', title: '本地漫画', pages },
-    locale: 'ja',
-    settings: { readingDirection: 'rtl', layoutMode: 'inline' }
+    locale: 'zh-CN',
+    settings: { readingDirection: 'ltr', layoutMode: 'nativeFullscreen' }
   })
 }
 

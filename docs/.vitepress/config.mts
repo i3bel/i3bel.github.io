@@ -25,6 +25,7 @@ export default defineConfig({
       { text: 'Blog', link: '/blog/' },
       { text: 'Archives', link: '/archives/' },
       { text: 'Tags', link: '/tags/' },
+      { text: '猜你想找', link: '/猜你想找/' },
       { text: 'Friends', link: '/friends/' },
       { text: 'About', link: '/about/' },
       { text: '漫画', link: '/manga' },
