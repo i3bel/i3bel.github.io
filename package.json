@@ -20,5 +20,8 @@
     "hyperframes": "^0.6.76",
     "vitepress": "^1.6.4",
     "vue": "^3.5.34"
+  },
+  "dependencies": {
+    "@yui540/comimi": "^0.18.0"
   }
 }
