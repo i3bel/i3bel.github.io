@@ -55,4 +55,11 @@ export default defineConfig({
       linkText: '返回首页',
     },
   },
+
+  // 加上这一段 vite 的配置来解决打包时的 CSS 报错
+  vite: {
+    ssr: {
+      noExternal: ['@eigenpal/docx-editor-vue', 'prosemirror-view']
+    }
+  }
 })
