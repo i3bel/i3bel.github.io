@@ -29,6 +29,7 @@ export default defineConfig({
       { text: 'Friends', link: '/friends/' },
       { text: 'About', link: '/about/' },
       { text: '漫画', link: '/manga' },
+      { text: '文档编辑', link: '/docx-editor' },
     ],
     socialLinks: [
       { icon: 'github', link: 'https://github.com/i3bel' },
