@@ -59,7 +59,7 @@ export default defineConfig({
   // 加上这一段 vite 的配置来解决打包时的 CSS 报错
   vite: {
     ssr: {
-      noExternal: ['@eigenpal/docx-editor-vue', 'prosemirror-view']
+      noExternal: ['@eigenpal/docx-editor-vue', 'prosemirror-view','animal-island-vue']
     }
   }
 })
