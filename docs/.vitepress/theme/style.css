@@ -1,34 +1,50 @@
 :root {
-  --vp-c-brand-1: #059669;
-  --vp-c-brand-2: #10b981;
-  --vp-c-brand-3: #34d399;
-  --vp-c-brand-soft: rgba(5, 150, 105, 0.12);
+  /* 主色：动森经典薄荷绿松石色，对应库里的 --animal-primary-color */
+  --vp-c-brand-1: #19c8b9;
+  --vp-c-brand-2: #3dd4c6;
+  --vp-c-brand-3: #50b9ab;
+  --vp-c-brand-soft: #e6f9f6;
 
-  --vp-c-bg: rgba(255, 255, 255, 0.94);
-  --vp-c-bg-alt: #f6f6f7;
-  --vp-c-bg-elv: #ffffff;
-  --vp-c-bg-soft: #f6f6f7;
+  /* 背景：暖调牛皮纸/沙滩色，别用纯白 */
+  --vp-c-bg: #f8f8f0;
+  --vp-c-bg-alt: #f0e8d8;
+  --vp-c-bg-elv: #f7f3df;
+  --vp-c-bg-soft: #f0ece2;
 
-  --vp-c-text-1: #2c3e50;
-  --vp-c-text-2: #6b7280;
+  /* 文字：比原来再压深一档，米黄底色上要达到舒适阅读对比度（接近 WCAG AA 4.5:1） */
+  --vp-c-text-1: #5c4020;
+  --vp-c-text-2: #8a7a5e;
 
-  --vp-font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  /* 正文字体：优先系统无衬线字体，长文阅读更耐看，不用展示型圆体做默认正文 */
+  --vp-font-family-base: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans SC',
+    'Microsoft YaHei', 'Segoe UI', sans-serif;
   --vp-font-family-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace;
+
+  /* 新增：展示型字体单独一个变量，只给标题/按钮/Hero 用，不参与正文 */
+  --vp-font-family-display: 'Nunito', 'Noto Sans SC', sans-serif;
 }
 
 .dark {
-  --vp-c-brand-1: #34d399;
-  --vp-c-brand-2: #6ee7b7;
-  --vp-c-brand-3: #a7f3d0;
-  --vp-c-brand-soft: rgba(52, 211, 153, 0.16);
+  /* Claude.ai 实际暗色界面配色：暖木炭色背景 + 奶油白文字 + 陶土橙强调色 */
+  --vp-c-brand-1: #d97757;
+  --vp-c-brand-2: #e2957a;
+  --vp-c-brand-3: #eab595;
+  --vp-c-brand-soft: rgba(217, 119, 87, 0.14);
 
-  --vp-c-bg: rgba(26, 26, 26, 0.94);
-  --vp-c-bg-alt: #252529;
-  --vp-c-bg-elv: #252529;
-  --vp-c-bg-soft: #2a2a2e;
+  --vp-c-bg: #262624;
+  --vp-c-bg-alt: #30302e;
+  --vp-c-bg-elv: #3a3a38;
+  --vp-c-bg-soft: #40403d;
 
-  --vp-c-text-1: #e5e7eb;
-  --vp-c-text-2: #9ca3af;
+  --vp-c-text-1: #faf9f5;
+  --vp-c-text-2: #c2c0b6;
+}
+
+/* 标题、Hero、按钮等展示区域用圆体，正文自动走 base 字体不受影响 */
+h1, h2, h3,
+.vp-home-hero h1,
+.section-title {
+  font-family: var(--vp-font-family-display);
 }
 
 /* HomePage Hero */
@@ -153,12 +169,13 @@
 
 .post-item {
   padding: 20px 0;
-  border-bottom: 1px solid var(--vp-c-divider);
+  /*border-bottom: 1px solid var(--vp-c-divider);*/
+  
 }
 
-.post-item:last-child {
+/* .post-item:last-child {
   border-bottom: none;
-}
+} */
 
 .post-item .post-date {
   font-size: 13px;
@@ -524,3 +541,71 @@ a.archive-post:hover {
   }
 }
 
+/* ==========================================================================
+   Animal Island Vue 组件库 样式隔离 & 动画恢复专项配置
+   ========================================================================== */
+
+/* 1. 恢复被 VitePress 屏蔽/重置的动画与过渡效果 */
+[class*="animal-"],
+[class*="island-"],
+[class*="aiv-"],
+[class*="animal-"] *,
+[class*="island-"] *,
+[class*="aiv-"] * {
+  /* 强行解除 VitePress 的 transition 限制 */
+  transition: var(--aiv-transition, inherit);
+  animation-play-state: running !important;
+}
+
+/* 2. 覆盖系统级 prefers-reduced-motion，防止动画被强制关闭 */
+@media (prefers-reduced-motion: reduce) {
+  [class*="animal-"],
+  [class*="island-"],
+  [class*="aiv-"],
+  [class*="animal-"] *,
+  [class*="island-"] *,
+  [class*="aiv-"] * {
+    animation-duration: inherit !important;
+    animation-iteration-count: inherit !important;
+    transition-duration: inherit !important;
+  }
+}
+
+/* 3. 隔离 .vp-doc 文档区域对组件颜色的污染（解决 VitePress 强制文字/背景色覆盖） */
+.vp-doc [class*="animal-"],
+.vp-doc [class*="island-"],
+.vp-doc [class*="aiv-"] {
+  /* 还原背景和文字继承权，交给组件自身的 CSS 变量掌控 */
+  color: initial;
+  background-color: transparent;
+}
+
+/* 4. 清除 VitePress 对组件内基础标签（a、button、img、p、h1-h6）的侵入式重置 */
+.vp-doc [class*="animal-"] a,
+.vp-doc [class*="island-"] a,
+.vp-doc [class*="aiv-"] a {
+  color: inherit;
+  text-decoration: none !important;
+}
+
+.vp-doc [class*="animal-"] button,
+.vp-doc [class*="island-"] button,
+.vp-doc [class*="aiv-"] button {
+  background-color: transparent;
+  border: none;
+  font-family: inherit;
+}
+
+.vp-doc [class*="animal-"] img,
+.vp-doc [class*="island-"] img,
+.vp-doc [class*="aiv-"] img {
+  border-radius: initial;
+  margin: 0;
+}
+
+/* 5. 阻止你的自定义展示字体（--vp-font-family-display）强行作用于组件内标题 */
+[class*="animal-"] h1, [class*="animal-"] h2, [class*="animal-"] h3,
+[class*="island-"] h1, [class*="island-"] h2, [class*="island-"] h3,
+[class*="aiv-"] h1, [class*="aiv-"] h2, [class*="aiv-"] h3 {
+  font-family: inherit;
+}

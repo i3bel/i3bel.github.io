@@ -10,7 +10,7 @@ export default defineConfig({
   ignoreDeadLinks: true,
 
   head: [
-    ['link', { rel: 'icon', href: '/favicon.ico' }],
+    ['link', { rel: 'icon', href: '/avatars/EmacsLG1-preview.png' }],
     ['meta', { name: 'theme-color', content: '#059669' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:locale', content: 'zh_CN' }],
@@ -27,16 +27,16 @@ export default defineConfig({
       { text: 'Tags', link: '/tags/' },
       { text: '猜你想找', link: '/猜你想找/' },
       { text: 'Friends', link: '/friends/' },
-      { text: 'About', link: '/about/' },
-      { text: '漫画', link: '/manga' },
-      { text: '文档编辑', link: '/docx-editor' },
+      { text: 'About', link: '/about' },
+      { text: '漫画', link: '/漫画/' },
+      { text: '文档编辑', link: '/文档编辑/' },
     ],
     socialLinks: [
       { icon: 'github', link: 'https://github.com/i3bel' },
     ],
-    footer: {
-      copyright: `© ${new Date().getFullYear()} i3bel`,
-    },
+    // footer: {
+    //   copyright: `© ${new Date().getFullYear()} i3bel`,
+    // },
     docFooter: {
       prev: '上一篇',
       next: '下一篇',

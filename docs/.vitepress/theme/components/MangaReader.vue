@@ -1,30 +1,36 @@
 <template>
-  <div class="manga-reader-page">
-    <div v-if="!hasPages" class="manga-picker">
-      <div class="picker-card">
-        <div class="picker-icon">📖</div>
-        <h2>选择本地漫画</h2>
-        <p class="picker-desc">图片只在浏览器本地读取，不会上传到任何服务器</p>
+  <ClientOnly>
+    <div class="manga-reader-page vp-raw">
+      <!-- 1. 选择文件界面 -->
+      <div v-if="!hasPages" class="manga-picker">
+        <div class="picker-card">
+          <div class="picker-icon">📖</div>
+          <h2>选择本地漫画</h2>
+          <p class="picker-desc">图片只在浏览器本地读取，不会上传到任何服务器</p>
 
-        <label class="picker-btn primary">
-          选择文件夹
-          <input type="file" webkitdirectory multiple @change="onFilesSelected" hidden />
-        </label>
+          <label class="picker-btn primary">
+            选择文件夹
+            <input type="file" webkitdirectory multiple @change="onFilesSelected" hidden />
+          </label>
 
-        <label class="picker-btn">
-          选择多张图片
-          <input type="file" accept="image/*" multiple @change="onFilesSelected" hidden />
-        </label>
+          <label class="picker-btn">
+            选择多张图片
+            <input type="file" accept="image/*" multiple @change="onFilesSelected" hidden />
+          </label>
 
-        <p class="picker-hint">手机端建议用"选择多张图片"</p>
+          <p class="picker-hint">手机端建议用"选择多张图片"</p>
+        </div>
+      </div>
+
+      <!-- 2. 网页全屏阅读器 -->
+      <div v-else class="manga-viewer-container">
+        <!-- 退出/重新选择按钮 -->
+        <button class="reset-btn" @click="reset">← 重新选择</button>
+        <!-- comimi 阅读器挂载点 -->
+        <div ref="viewerEl" class="comimi-viewer-wrapper"></div>
       </div>
     </div>
-
-    <div v-else>
-      <button class="reset-btn" @click="reset">← 重新选择</button>
-      <div ref="viewerEl"></div>
-    </div>
-  </div>
+  </ClientOnly>
 </template>
 
 <script setup>
@@ -55,11 +61,22 @@ async function onFilesSelected(e) {
   hasPages.value = true
   await nextTick()
 
-  viewerInstance = createMangaViewer(viewerEl.value, {
-    manga: { id: 'local-manga', title: '本地漫画', pages },
-    locale: 'zh-CN',
-    settings: { readingDirection: 'ltr', layoutMode: 'nativeFullscreen' }
-  })
+  if (viewerEl.value) {
+    viewerInstance = createMangaViewer(viewerEl.value, {
+      manga: { id: 'local-manga', title: '本地漫画', pages },
+      locale: 'zh-CN',
+      
+      // 核心设置：开启网页全屏并锁定
+      settings: {
+        layoutMode: 'browserFullscreen', // 网页全屏（铺满浏览器）
+        readingDirection: 'rtl'          // 日式漫画默认右->左 (可按需改 ltr)
+      },
+      
+      // 强行锁定模式，防止 IndexedDB 缓存旧设置覆盖，同时禁用按 Esc / N / W 退出网页全屏
+      lockLayoutMode: true,
+      forceSettings: ['layoutMode']
+    })
+  }
 }
 
 function reset() {
@@ -74,6 +91,9 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
+/* ==========================================================================
+   选择卡片 UI 样式
+   ========================================================================== */
 .manga-picker {
   display: flex;
   justify-content: center;
@@ -81,6 +101,7 @@ onBeforeUnmount(() => {
   min-height: 60vh;
   padding: 24px;
 }
+
 .picker-card {
   max-width: 420px;
   width: 100%;
@@ -90,44 +111,56 @@ onBeforeUnmount(() => {
   border-radius: 16px;
   background: var(--vp-c-bg-soft);
 }
+
 .picker-icon { font-size: 48px; margin-bottom: 8px; }
-.picker-card h2 { margin: 0 0 8px; font-size: 20px; }
-.picker-desc {
-  color: var(--vp-c-text-2);
-  font-size: 14px;
-  margin-bottom: 24px;
-}
+.picker-card h2 { margin: 0 0 8px; font-size: 20px; border: none; padding: 0; }
+.picker-desc { color: var(--vp-c-text-2); font-size: 14px; margin-bottom: 24px; }
+
 .picker-btn {
-  display: block;
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 12px;
-  border-radius: 8px;
-  border: 1px solid var(--vp-c-divider);
-  background: var(--vp-c-bg);
-  cursor: pointer;
-  font-size: 14px;
-  transition: border-color .2s, background .2s;
+  display: block; width: 100%; padding: 12px; margin-bottom: 12px;
+  border-radius: 8px; border: 1px solid var(--vp-c-divider);
+  background: var(--vp-c-bg); cursor: pointer; font-size: 14px;
+  transition: border-color .2s;
 }
 .picker-btn:hover { border-color: var(--vp-c-brand-1); }
 .picker-btn.primary {
-  background: var(--vp-c-brand-1);
-  color: var(--vp-c-white, #fff);
-  border-color: var(--vp-c-brand-1);
+  background: var(--vp-c-brand-1); color: #fff; border-color: var(--vp-c-brand-1);
 }
-.picker-btn.primary:hover { background: var(--vp-c-brand-2); }
-.picker-hint {
-  font-size: 12px;
-  color: var(--vp-c-text-3);
-  margin-top: 8px;
+.picker-hint { font-size: 12px; color: var(--vp-c-text-3); margin-top: 8px; }
+
+/* ==========================================================================
+   网页全屏顶层与重新选择按钮
+   ========================================================================== */
+.manga-viewer-container {
+  width: 100%;
+  height: 100%;
 }
+
+/* 重新选择按钮悬浮在网页全屏最上层 (层级设高，防止被阅读器 UI 遮挡) */
 .reset-btn {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 999999;
   padding: 6px 14px;
   border-radius: 6px;
-  border: 1px solid var(--vp-c-divider);
-  background: var(--vp-c-bg-soft);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 13px;
+  backdrop-filter: blur(4px);
+  transition: all 0.2s;
 }
-.reset-btn:hover { border-color: var(--vp-c-brand-1); }
+
+.reset-btn:hover {
+  background: rgba(0, 0, 0, 0.85);
+  border-color: var(--vp-c-brand-1);
+}
+
+/* 恢复动画与原生交互 */
+.comimi-viewer-wrapper :deep(*) {
+  animation-play-state: running !important;
+  box-sizing: border-box;
+}
 </style>

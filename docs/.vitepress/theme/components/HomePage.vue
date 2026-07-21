@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { Button, Title } from 'animal-island-vue'
 import { data as allPosts } from '../../../blog/posts.data.ts'
 
 const posts = allPosts.slice(0, 5)
