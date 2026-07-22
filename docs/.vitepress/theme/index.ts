@@ -9,6 +9,7 @@ import Tabs from './components/Tabs.vue'
 import flowbg from './components/flowbg.vue'
 import ContextMenu from './components/ContextMenu.vue'   // 名字和下面用的保持一致
 import './style.css'
+import { NotificationContainer } from 'animal-island-vue'
 
 export default {
   extends: DefaultTheme,
@@ -23,7 +24,7 @@ export default {
     return h('div', null, [
       showBg ? h(flowbg) : null,
       h(DefaultTheme.Layout, null, {
-        'layout-bottom': () => [h(BackToTop), h(ContextMenu)],
+        'layout-bottom': () => [h(BackToTop), h(ContextMenu),  h(NotificationContainer)],
       }),
     ])
   },

@@ -44,7 +44,7 @@ import { data as posts } from './posts.data.ts'
 </div>
 
 <div style="height: 20px;"></div>
-<Collapse question="「花园」路径？">
+<Collapse question="「陈列廊」路径？">
     <p>陈列廊 → 大厅、索引室、书房</p>
   </Collapse>
 

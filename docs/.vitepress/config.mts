@@ -25,7 +25,7 @@ export default defineConfig({
       { text: 'Blog', link: '/blog/' },
       { text: 'Archives', link: '/archives/' },
       { text: 'Tags', link: '/tags/' },
-      { text: '猜你想找', link: '/猜你想找/' },
+      { text: 'oracle', link: '/oracle/' },
       { text: 'Friends', link: '/friends/' },
       { text: 'About', link: '/about' },
       { text: '漫画', link: '/漫画/' },
@@ -34,9 +34,7 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/i3bel' },
     ],
-    // footer: {
-    //   copyright: `© ${new Date().getFullYear()} i3bel`,
-    // },
+
     docFooter: {
       prev: '上一篇',
       next: '下一篇',

@@ -2,6 +2,7 @@
 title: roll.el：Emacs RPG 掷骰插件
 date: '2026-07-18T13:00:00+08:00'
 summary: 一个功能丰富的 Emacs 掷骰插件，支持标准 RPG 掷骰表达式、D&D 保留/去除骰子、重骰、Math 函数、重复掷骰以及随机工具。
+oracle: yes
 tags:
 - Emacs
 - Emacs Lisp

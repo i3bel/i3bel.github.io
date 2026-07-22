@@ -1,28 +1,75 @@
 :root {
-  /* 主色：动森经典薄荷绿松石色，对应库里的 --animal-primary-color */
-  --vp-c-brand-1: #19c8b9;
-  --vp-c-brand-2: #3dd4c6;
-  --vp-c-brand-3: #50b9ab;
-  --vp-c-brand-soft: #e6f9f6;
+  /* ==========================================
+     1. 主色调 (Primary Accent - 动森薄荷绿松石)
+     ========================================== */
+  --vp-c-brand-1: #19c8b9; /* Default */
+  --vp-c-brand-2: #3dd4c6; /* Hover */
+  --vp-c-brand-3: #11a89b; /* Active */
+  --vp-c-brand-soft: #e6f9f6; /* Light bg */
 
-  /* 背景：暖调牛皮纸/沙滩色，别用纯白 */
-  --vp-c-bg: #f8f8f0;
-  --vp-c-bg-alt: #f0e8d8;
-  --vp-c-bg-elv: #f7f3df;
-  --vp-c-bg-soft: #f0ece2;
+  /* ==========================================
+     2. 背景色系 (Backgrounds - 暖羊皮纸/米黄底色)
+     ========================================== */
+  /* 主页面背景 */
+  --vp-c-bg: #CCFFDD;
+  /* 侧边栏 / 嵌套区域背景 */
+  --vp-c-bg-alt: #f0ece2;
+  /* 内容区 / Card / Modal 浮层背景 */
+  --vp-c-bg-elv: rgb(247, 243, 223);
+  /* 弱化/浅色区域背景 */
+  --vp-c-bg-soft: #f4f0e6;
 
-  /* 文字：比原来再压深一档，米黄底色上要达到舒适阅读对比度（接近 WCAG AA 4.5:1） */
-  --vp-c-text-1: #5c4020;
-  --vp-c-text-2: #8a7a5e;
+  /* ==========================================
+     3. 文字颜色 (Text Colors - 暖棕色系，无纯黑)
+     ========================================== */
+  /* 标题 / Header / Sidebar 强文本 (#794f27) */
+  --vp-c-text-1: #794f27;
+  /* 正文 / 组件内文字 (#725d42) */
+  --vp-c-text-2: #725d42;
+  /* 次要文字 (#9f927d) */
+  --vp-c-text-3: #9f927d;
+  /* 暗淡 / 占位符文字 (#c4b89e) */
+  --vp-c-text-4: #c4b89e;
 
-  /* 正文字体：优先系统无衬线字体，长文阅读更耐看，不用展示型圆体做默认正文 */
-  --vp-font-family-base: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans SC',
-    'Microsoft YaHei', 'Segoe UI', sans-serif;
-  --vp-font-family-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace;
+  /* ==========================================
+     4. 边框与阴影 (Borders & Game 3D Shadow)
+     ========================================== */
+  --vp-c-border: #9f927d;
+  --vp-c-divider: #d4cfc3;
+  /* 游戏特色 3D 底阴影色 */
+  --animal-shadow-btn: #bdaea0;
+  --animal-shadow-input: #d4c9b4;
 
-  /* 新增：展示型字体单独一个变量，只给标题/按钮/Hero 用，不参与正文 */
-  --vp-font-family-display: 'Nunito', 'Noto Sans SC', sans-serif;
+  /* ==========================================
+     5. 游戏特色/状态高亮色 (Game-special & Status)
+     ========================================== */
+  /* 输入框与焦点高亮黄（取代传统冷蓝） */
+  --animal-focus-yellow: #ffcc00;
+  --animal-focus-yellow-dark: #e0b800;
+  /* 状态色 */
+  --vp-c-green-1: #6fba2c; /* Success / 星期文字 */
+  --vp-c-yellow-1: #f5c31c; /* Warning */
+  --vp-c-red-1: #e05a5a; /* Error */
+  /* 侧边栏选中高亮 */
+  --animal-sidebar-selected: #b7c6e5;
+  --animal-sidebar-hover: #d6dff0;
+
+  /* ==========================================
+     6. 字体系统 (Typography)
+     ========================================== */
+  /* 正文无衬线字体：优先系统字体，保证长文舒适度 */
+  --vp-font-family-base: -apple-system, BlinkMacSystemFont, 'PingFang SC',
+    'Noto Sans SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+
+  /* 展示型圆体：专给 标题 / 按钮 / Hero / 菜单 使用 */
+  --vp-font-family-display: 'Nunito', 'Zen Maru Gothic', 'Noto Sans SC',
+    -apple-system, sans-serif;
+
+  /* 等宽字体：代码块使用规范要求的暗色调格式 */
+  --vp-font-family-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', Consolas,
+    monospace;
 }
+
 
 .dark {
   /* Claude.ai 实际暗色界面配色：暖木炭色背景 + 奶油白文字 + 陶土橙强调色 */
@@ -565,9 +612,11 @@ a.archive-post:hover {
   [class*="animal-"] *,
   [class*="island-"] *,
   [class*="aiv-"] * {
-    animation-duration: inherit !important;
-    animation-iteration-count: inherit !important;
-    transition-duration: inherit !important;
+    /* 删掉 inherit，改成显式还原一个合理的默认动画时长，
+       而不是让浏览器往上找一个根本不存在的继承值 */
+    animation-duration: revert !important;
+    animation-iteration-count: revert !important;
+    transition-duration: revert !important;
   }
 }
 
@@ -609,3 +658,29 @@ a.archive-post:hover {
 [class*="aiv-"] h1, [class*="aiv-"] h2, [class*="aiv-"] h3 {
   font-family: inherit;
 }
+
+
+/* 1. 强制移除整个顶部 Nav（包含 Logo、搜索、主题切换、Github 链接及容器） */
+.VPNav,
+.VPNavBar,
+.VPNavScreen {
+  display: none !important;
+}
+
+/* 2. 归零顶部导航高度变量，让页面内容直接从浏览器最顶端开始渲染 */
+:root {
+  --vp-nav-height: 0px !important;
+}
+
+/* 3. 修复内容区顶部的 padding 留白 */
+.VPContent {
+  padding-top: 0 !important;
+}
+
+
+/* 针对 Webkit 内核浏览器（Chrome, Safari, Edge 等）隐藏滚动条 */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+

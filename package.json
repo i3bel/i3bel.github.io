@@ -25,6 +25,6 @@
   "dependencies": {
     "@eigenpal/docx-editor-vue": "^1.9.0",
     "@yui540/comimi": "^0.18.0",
-    "animal-island-vue": "^0.2.1"
+    "animal-island-vue": "file:vendor/animal-island-vue-0.2.0.tgz"
   }
 }

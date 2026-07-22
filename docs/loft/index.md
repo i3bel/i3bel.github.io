@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 漫画
+title: loft
 ---
 
 <script setup>

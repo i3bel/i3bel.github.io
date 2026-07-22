@@ -1,12 +1,12 @@
 ---
-title: Friends
+title: garden
 description: 友情链接
 lastUpdated: false
 layout: page
 ---
 
 <script setup>
-import { Card, Title, Divider, Button, Collapse } from 'animal-island-vue';
+import { Card, Title, Divider, Button, Collapse} from 'animal-island-vue';
 
 const friends = [
   {
