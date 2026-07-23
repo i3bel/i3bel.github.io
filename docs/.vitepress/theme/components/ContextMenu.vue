@@ -23,58 +23,69 @@ interface MenuItem {
 const menuMap: Record<string, MenuItem[]> = {
   // 从 花园 (/garden/) 出发
   '/garden/': [
-    { key: 'hall', label: '🏠 大厅', target: '/', message: '抖落斗篷上的落叶，拍拍土回屋了。' },
-    { key: 'study', label: '👤 书房', target: '/study/', message: '去书房吧，有些记不清的旧事想翻翻看。' },
-    { key: 'loft', label: '📖 阁楼', target: '/loft/', message: '趁着阳光正好，去阁楼晒晒那些奇奇怪怪的收藏。' },
+    { key: 'hall', label: '🏠 大厅', target: '/', message: '抖落法袍上的落叶与泥土……回大厅喝杯热花草茶吧。' },
+    { key: 'study', label: '👤 书房', target: '/study/', message: '去书房吧。毕竟精灵的记忆太漫长了，有些旧事得翻翻魔导书才想得起来。' },
+    { key: 'loft', label: '📖 阁楼', target: '/loft/', message: '趁着阳光不错，去阁楼晒晒那些收集来的、毫无用处的魔法道具吧。' },
   ],
 
   // 从 陈列廊/博客 (/blog/) 出发
   '/blog/': [
-    { key: 'hall', label: '🏠 大厅', target: '/', message: '合上泛黄的手稿，大厅里的炉火应该还亮着。' },
-    { key: 'loft', label: '📖 阁楼', target: '/loft/', message: '去找找看有没有能把这些文字变成魔法的小魔法吧。' },
+    { key: 'hall', label: '🏠 大厅', target: '/', message: '合上泛黄的手稿……大厅里的壁炉应该还烧得正旺吧。' },
+    { key: 'loft', label: '📖 阁楼', target: '/loft/', message: '去阁楼看看吧，说不定能找到「把这些文字变成民间魔法」的魔导书呢。' },
   ],
 
   // 从 档案室 (/archives/) 出发
   '/archives/': [
-    { key: 'hall', label: '🏠 大厅', target: '/', message: '时间走得太快了……先回大厅喝杯茶吧。' },
-    { key: 'tags', label: '🏷️ 索引室', target: '/tags/', message: '把这些散落的记忆，按标签好好收拢起来。' },
+    { key: 'hall', label: '🏠 大厅', target: '/', message: '人类的时间总是走得这么快……先回大厅休息一会儿吧。' },
+    { key: 'tags', label: '🏷️ 索引室', target: '/tags/', message: '把这些散落的旅途记忆，按标签好好归类收拢起来吧。' },
   ],
 
   // 从 索引室 (/tags/) 出发
   '/tags/': [
-    { key: 'hall', label: '🏠 大厅', target: '/', message: '整理得差不多了，回大厅坐一会儿。' },
-    { key: 'oracle', label: '🔮 占卜室', target: '/oracle/', message: '前方有一丝不可思议的气息，去看看也无妨。' },
-    { key: 'archives', label: '📚 档案室', target: '/archives/', message: '顺着这些标记，回去看看很久以前写下的文字。' },
+    { key: 'hall', label: '🏠 大厅', target: '/', message: '分类整理得差不多了，回大厅坐会儿吧。' },
+    { key: 'oracle', label: '🔮 占卜室', target: '/oracle/', message: '前方有一股不可思议的魔力反应呢……去看看也无妨。' },
+    { key: 'archives', label: '📚 档案室', target: '/archives/', message: '顺着这些标记，回去翻翻很久很久以前写下的文字吧。' },
   ],
 
   // 从 书房 (/study/) 出发
   '/study/': [
-    { key: 'hall', label: '🏠 大厅', target: '/', message: '蘸水笔干了。今天就先写到这里，回大厅吧。' },
-    { key: 'oracle', label: '🔮 占卜室', target: '/oracle/', message: '思考遇到了瓶颈……去找点神秘的启发吧。' },
-    { key: 'garden', label: '🌿 花园', target: '/garden/', message: '眼睛有点酸了，去外面看看花开了没有。' },
+    { key: 'hall', label: '🏠 大厅', target: '/', message: '羽毛笔的墨水干了。今天就先研究到这里，回大厅吧。' },
+    { key: 'oracle', label: '🔮 占卜室', target: '/oracle/', message: '魔法研究遇到了瓶颈……去占卜室找找看有没有神秘的灵感吧。' },
+    { key: 'garden', label: '🌿 花园', target: '/garden/', message: '眼睛稍微有点酸了呢，去外面看看草木花卉开了没有。' },
   ],
 
   // 从 占卜室 (/oracle/) 出发
   '/oracle/': [
-    { key: 'hall', label: '🏠 大厅', target: '/', message: '命运总是难以琢磨，还是大厅里的日常让人安心。' },
-    { key: 'tags', label: '🏷️ 索引室', target: '/tags/', message: '把刚刚获得的启示，归类到具体的标记里。' },
+    { key: 'hall', label: '🏠 大厅', target: '/', message: '命运这种东西总是难以琢磨，还是大厅里和平平静静的日常更让人安心呢。' },
+    { key: 'tags', label: '🏷️ 索引室', target: '/tags/', message: '把刚刚获得的启示，归类到具体的魔力标记里去吧。' },
+    { key: 'loft', label: '📖 阁楼', target: '/loft/', message: '积灰的阴暗角落里……说不定正藏着宝箱怪（以及罕见的魔导书）呢。' },
+    { key: 'darkroom', label: '🕯️ 暗房', target: '/darkroom/', message: '点亮一盏微光，在静谧的暗房里，像吟唱咒语一样专注地敲击指尖吧。' },
   ],
 
   // 从 阁楼 (/loft/) 出发
   '/loft/': [
-    { key: 'hall', label: '🏠 大厅', target: '/', message: '踩着木梯吱呀吱呀地走下去，回大厅歇会儿。' },
-    { key: 'garden', label: '🌿 花园', target: '/garden/', message: '从阁楼小窗看到外面的微风，想去草地上躺躺。' },
+    { key: 'hall', label: '🏠 大厅', target: '/', message: '踩着木梯吱呀吱呀地走下去，回大厅喝杯红茶歇一会儿。' },
+    { key: 'garden', label: '🌿 花园', target: '/garden/', message: '从阁楼小窗看到外面的微风，想去花海里躺着睡个午觉呢。' },
+    { key: 'darkroom', label: '🕯️ 暗房', target: '/darkroom/', message: '点亮一盏微光，在静谧的暗房里，像吟唱咒语一样专注地敲击指尖吧。' },
+  ],
+
+  // 从 暗房 (/darkroom/) 出发
+  '/darkroom/': [
+    { key: 'hall', label: '🏠 大厅', target: '/', message: '从静谧的暗房里出来，踩着木梯回大厅歇一会儿吧。' },
+    { key: 'garden', label: '🌿 花园', target: '/garden/', message: '暗房待久了有点眼花，去外面的花园吹吹风吧。' },
+    { key: 'oracle', label: '🔮 占卜室', target: '/oracle/', message: '咏唱遇到了瓶颈……去寻找一点神秘的灵感与启发吧。' },
   ],
 
   // 从 大厅 (/) 出发（旅程的起点与中途休息站）
   '/': [
-    { key: 'blog', label: '🖼️ 陈列廊', target: '/blog/', message: '来看看这一路上，我都收集到了哪些故事。' },
-    { key: 'archives', label: '📚 档案室', target: '/archives/', message: '去翻翻过去的日记吧，哪怕只是几年前的事，也像很久以前了。' },
-    { key: 'tags', label: '🏷️ 索引室', target: '/tags/', message: '漫长旅途中散落的碎片，在这里都能找到踪迹。' },
+    { key: 'blog', label: '🖼️ 陈列廊', target: '/blog/', message: '来看看这一路上，我和伙伴们都收集到了哪些有趣的故事吧。' },
+    { key: 'archives', label: '📚 档案室', target: '/archives/', message: '去翻翻过去的日记吧……明明只是几十年前的事，却感觉像在很久以前了。' },
+    { key: 'tags', label: '🏷️ 索引室', target: '/tags/', message: '漫长旅途里散落的记忆碎片，在这里都能找到踪迹呢。' },
     { key: 'oracle', label: '🔮 占卜室', target: '/oracle/', message: '「能让人找到好玩藏品的魔法」……大概就在里面吧。' },
-    { key: 'garden', label: '🌿 花园', target: '/garden/', message: '去拜访一下同行旅人们的花园，希望能收到他们的回信。' },
-    { key: 'loft', label: '📖 阁楼', target: '/loft/', message: '积灰的角落里，说不定藏着什么毫无用处却很有趣的小玩意。' },
-    { key: 'study', label: '👤 书房', target: '/study/', message: '找个安静的地方坐下，聊聊关于我的、以及那些漫长的时光。' },
+    { key: 'garden', label: '🌿 花园', target: '/garden/', message: '去拜访一下同行旅人们的花园吧，如果是勇者辛美尔的话，大概也会这么做。' },
+    { key: 'loft', label: '📖 阁楼', target: '/loft/', message: '积灰的阴暗角落里……说不定藏着什么毫无用处却很有趣的小玩意呢。' },
+    { key: 'study', label: '👤 书房', target: '/study/', message: '找个安静的地方坐下，聊聊关于我的、以及那些漫长的时光吧。' },
+    { key: 'darkroom', label: '🕯️ 暗房', target: '/darkroom/', message: '点亮一盏微光，在静谧的暗房里，像吟唱咒语一样专注地敲击指尖吧。' },
   ],
 }
 

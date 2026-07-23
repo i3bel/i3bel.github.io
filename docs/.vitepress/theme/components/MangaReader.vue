@@ -65,60 +65,28 @@
           >
             {{ isDark ? '☀️ 浅色模式' : '🌙 深色模式' }}
           </Button>
+
+          <!-- 5. 打字练习按钮（跳转暗房） -->
+          <Button 
+            type="primary" 
+            danger 
+            style="margin-top: 10px; margin-bottom: 20px;" 
+            @click="goToTyping"
+          >
+            🕯️ 暗房打字
+          </Button>
         </div>
 
-
-<template>
-  <div class="vp-home-hero">
-    <div class="avatar">
-      <img src="https://github.com/i3bel.png" alt="avatar" />
-    </div>
-    <h1>你好，我是 i3bel</h1>
-    <p class="tagline">一名正在探索技术的爱好者</p>
-
-    <div class="signature">
-      <div class="signature-quote">
-        <span class="signature-mark">"</span>
-        <span class="signature-text">{{ quote }}</span>
-        <span class="signature-mark">"</span>
-      </div>
-    </div>
-
-    <div class="actions">
-      <a href="/blog/" class="btn btn-primary">查看博客</a>
-      <!-- 点击关于我触发实时彩蛋转换 -->
-      <a href="/about/" class="btn btn-secondary" @click="toggleFont">关于我</a>
-    </div>
-  </div>
-
-  <div class="post-list">
-    <h2 class="section-title">最新文章</h2>
-    <div v-for="post in posts" :key="post.url" class="post-item">
-      <div class="post-date">{{ post.date }}</div>
-      <div class="post-title">
-        <a :href="post.url">{{ post.title }}</a>
-      </div>
-      <p class="post-summary">{{ post.summary }}</p>
-      <div class="post-tags">
-        <a
-          v-for="tag in post.tags"
-          :key="tag"
-          :href="`/tags/#${tag}`"
-          class="post-tag"
-        >#{{ tag }}</a>
-      </div>
-    </div>
-  </div>
-</template>
         <Card type="dashed" color="warm-peach-pink" style="margin-top: 10px;">
           图片只在浏览器本地读取，不会上传到任何服务器。<br />
           <span style="font-size: 13px; opacity: 0.8;">💡 手机端建议使用“选择多张图片”</span>
         </Card>
-        <div style="height: 20px;"></div>
-        <Collapse question="「阁楼」路径？">
-        <p>阁楼 → 大厅、花园</p>
-        </Collapse>
 
+        <div style="height: 20px;"></div>
+
+        <Collapse question="「阁楼」路径？">
+          <p>阁楼 → 大厅、花园、暗房</p>
+        </Collapse>
       </div>
 
       <!-- 2. 网页全屏阅读器 -->
@@ -151,6 +119,11 @@ function toggleTheme() {
 // 跳转到 /文档编辑/
 function goToDocEditor() {
   router.go('/文档编辑/')
+}
+
+// 跳转到暗房打字练习页面
+function goToTyping() {
+  router.go('/darkroom/')
 }
 
 const hasPages = ref(false)
@@ -197,12 +170,10 @@ async function onFilesSelected(e: Event) {
     viewerInstance = createMangaViewer(viewerEl.value, {
       manga: { id: 'local-manga', title: '阁楼', pages },
       locale: 'zh-CN',
-      
       settings: {
         layoutMode: 'browserFullscreen',
         readingDirection: 'rtl'
       },
-      
       lockLayoutMode: true,
       forceSettings: ['layoutMode']
     })

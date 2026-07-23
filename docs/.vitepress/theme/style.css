@@ -57,26 +57,27 @@
   /* ==========================================
      6. 字体系统 (Typography)
      ========================================== */
-  /* 正文无衬线字体：优先系统字体，保证长文舒适度 */
   --vp-font-family-base: -apple-system, BlinkMacSystemFont, 'PingFang SC',
     'Noto Sans SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
 
-  /* 展示型圆体：专给 标题 / 按钮 / Hero / 菜单 使用 */
   --vp-font-family-display: 'Nunito', 'Zen Maru Gothic', 'Noto Sans SC',
     -apple-system, sans-serif;
 
-  /* 等宽字体：代码块使用规范要求的暗色调格式 */
   --vp-font-family-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', Consolas,
     monospace;
+
+  /* 7. 顶部导航归零 */
+  --vp-nav-height: 0px !important;
 }
 
-
+/* ==========================================
+   夜间模式配色 (Dark Mode - Claude Warm Charcoal)
+   ========================================== */
 .dark {
-  /* Claude.ai 实际暗色界面配色：暖木炭色背景 + 奶油白文字 + 陶土橙强调色 */
   --vp-c-brand-1: #d97757;
   --vp-c-brand-2: #e2957a;
   --vp-c-brand-3: #eab595;
-  --vp-c-brand-soft: rgba(217, 119, 87, 0.14);
+  --vp-c-brand-soft: rgba(217, 119, 87, 0.18);
 
   --vp-c-bg: #262624;
   --vp-c-bg-alt: #30302e;
@@ -85,9 +86,14 @@
 
   --vp-c-text-1: #faf9f5;
   --vp-c-text-2: #c2c0b6;
+  --vp-c-text-3: #8e8d85;
+  --vp-c-text-4: #63625d;
+
+  --vp-c-border: #4d4d48;
+  --vp-c-divider: #383835;
 }
 
-/* 标题、Hero、按钮等展示区域用圆体，正文自动走 base 字体不受影响 */
+/* 标题、Hero、按钮等展示区域用圆体 */
 h1, h2, h3,
 .vp-home-hero h1,
 .section-title {
@@ -125,7 +131,7 @@ h1, h2, h3,
   font-weight: 700;
   line-height: 1.4;
   margin-bottom: 12px;
-  background: linear-gradient(135deg, #059669 0%, #34d399 100%);
+  background: linear-gradient(135deg, var(--vp-c-brand-1) 0%, var(--vp-c-brand-2) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -155,14 +161,14 @@ h1, h2, h3,
 }
 
 .vp-home-hero .btn-primary {
-  background: #059669;
+  background: var(--vp-c-brand-1);
   color: #fff;
 }
 
 .vp-home-hero .btn-primary:hover {
-  background: #10b981;
+  background: var(--vp-c-brand-2);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+  box-shadow: 0 4px 12px var(--vp-c-brand-soft);
 }
 
 .vp-home-hero .btn-secondary {
@@ -172,8 +178,8 @@ h1, h2, h3,
 }
 
 .vp-home-hero .btn-secondary:hover {
-  border-color: #059669;
-  color: #059669;
+  border-color: var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1);
   transform: translateY(-1px);
 }
 
@@ -216,13 +222,7 @@ h1, h2, h3,
 
 .post-item {
   padding: 20px 0;
-  /*border-bottom: 1px solid var(--vp-c-divider);*/
-  
 }
-
-/* .post-item:last-child {
-  border-bottom: none;
-} */
 
 .post-item .post-date {
   font-size: 13px;
@@ -310,7 +310,7 @@ h1, h2, h3,
   color: #fff;
 }
 
-/* Tag sections — each tag's article list */
+/* Tag sections */
 .tag-section {
   margin: 32px 0;
 }
@@ -599,37 +599,36 @@ a.archive-post:hover {
 [class*="animal-"] *,
 [class*="island-"] *,
 [class*="aiv-"] * {
-  /* 强行解除 VitePress 的 transition 限制 */
   transition: var(--aiv-transition, inherit);
   animation-play-state: running !important;
 }
 
-/* 2. 覆盖系统级 prefers-reduced-motion，防止动画被强制关闭 */
+/* 2. 覆盖系统级 prefers-reduced-motion，确保动画无视系统设置强行播放 */
 @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after,
   [class*="animal-"],
   [class*="island-"],
   [class*="aiv-"],
   [class*="animal-"] *,
   [class*="island-"] *,
   [class*="aiv-"] * {
-    /* 删掉 inherit，改成显式还原一个合理的默认动画时长，
-       而不是让浏览器往上找一个根本不存在的继承值 */
-    animation-duration: revert !important;
-    animation-iteration-count: revert !important;
-    transition-duration: revert !important;
+    animation-duration: initial !important;
+    animation-iteration-count: initial !important;
+    transition-duration: initial !important;
   }
 }
 
-/* 3. 隔离 .vp-doc 文档区域对组件颜色的污染（解决 VitePress 强制文字/背景色覆盖） */
+/* 3. 隔离 .vp-doc 文档区域对组件颜色的污染 */
 .vp-doc [class*="animal-"],
 .vp-doc [class*="island-"],
 .vp-doc [class*="aiv-"] {
-  /* 还原背景和文字继承权，交给组件自身的 CSS 变量掌控 */
   color: initial;
   background-color: transparent;
 }
 
-/* 4. 清除 VitePress 对组件内基础标签（a、button、img、p、h1-h6）的侵入式重置 */
+/* 4. 清除 VitePress 对组件内基础标签的侵入式重置 */
 .vp-doc [class*="animal-"] a,
 .vp-doc [class*="island-"] a,
 .vp-doc [class*="aiv-"] a {
@@ -652,35 +651,33 @@ a.archive-post:hover {
   margin: 0;
 }
 
-/* 5. 阻止你的自定义展示字体（--vp-font-family-display）强行作用于组件内标题 */
+/* 5. 阻止自定义展示字体强行作用于组件内标题 */
 [class*="animal-"] h1, [class*="animal-"] h2, [class*="animal-"] h3,
 [class*="island-"] h1, [class*="island-"] h2, [class*="island-"] h3,
 [class*="aiv-"] h1, [class*="aiv-"] h2, [class*="aiv-"] h3 {
   font-family: inherit;
 }
 
-
-/* 1. 强制移除整个顶部 Nav（包含 Logo、搜索、主题切换、Github 链接及容器） */
+/* 6. 强制移除整个顶部 Nav */
 .VPNav,
 .VPNavBar,
 .VPNavScreen {
   display: none !important;
 }
 
-/* 2. 归零顶部导航高度变量，让页面内容直接从浏览器最顶端开始渲染 */
-:root {
-  --vp-nav-height: 0px !important;
-}
-
-/* 3. 修复内容区顶部的 padding 留白 */
+/* 7. 修复内容区顶部的 padding 留白 */
 .VPContent {
   padding-top: 0 !important;
 }
 
+/* 8. 隐藏 Webkit 内核浏览器滚动条（标准写法兼容 firefox 与 webkit） */
+html, body {
+  scrollbar-width: none; /* Firefox */
+}
 
-/* 针对 Webkit 内核浏览器（Chrome, Safari, Edge 等）隐藏滚动条 */
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
-  display: none;
+  display: none; /* Chrome / Safari / Edge */
 }
+
 
