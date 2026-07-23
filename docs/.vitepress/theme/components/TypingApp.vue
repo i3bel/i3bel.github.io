@@ -677,7 +677,7 @@ onMounted(() => {
 
 .typing-card-container {
   width: 100%;
-  height: 480px;
+  height: auto;
   overflow-y: auto;
   box-sizing: border-box;
 }
