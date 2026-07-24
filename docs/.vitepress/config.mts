@@ -16,6 +16,15 @@ export default defineConfig({
     ['meta', { property: 'og:locale', content: 'zh_CN' }],
   ],
 
+  // 1. 新增 vue 编译器选项，防止 Vue 将 <sticker-forge> 识别为未注册的 Vue 组件
+  vue: {
+    template: {
+      compilerOptions: {
+        isCustomElement: (tag) => tag === 'sticker-forge'
+      }
+    }
+  },
+
   themeConfig: {
     logo: null,
     search: {

@@ -1,12 +1,13 @@
+<!-- .vitepress/theme/components/HomePage.vue -->
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Button, Title } from 'animal-island-vue'
-import { data as allPosts } from '../../../blog/posts.data.ts'
-
-const posts = allPosts.slice(0, 5)
+import { Title, Divider } from 'animal-island-vue'
+import 'animal-island-vue/style'
+import Sticker from './Sticker.vue'
+import ConfidentialFolder from './ConfidentialFolder.vue'
 
 const quotes = [
-    // 二次元语录
+     // 二次元语录
   '不要道歉，因为道歉就意味着你认为自己做错了。——《EVA》',
   '所谓奇迹，就是用来创造的。——《天元突破》',
   '即使知道结局，我也要选择这条路。——《命运石之门》',
@@ -121,43 +122,180 @@ const quote = ref(quotes[Math.floor(Math.random() * quotes.length)])
 </script>
 
 <template>
-  <div class="vp-home-hero">
-    <div class="avatar">
-      <img src="https://github.com/i3bel.png" alt="avatar" />
-    </div>
-    <h1>你好，我是 i3bel</h1>
-    <p class="tagline">一名正在探索技术的爱好者</p>
+  <div class="homepage-root">
 
-    <div class="signature">
-      <div class="signature-quote">
-        <span class="signature-mark">"</span>
-        <span class="signature-text">{{ quote }}</span>
-        <span class="signature-mark">"</span>
+    <!-- ==================================================== -->
+    <!-- 贴纸放置区域 (图片 & 1:1 文字贴纸) -->
+    <!-- ==================================================== -->
+
+    <!-- 文字贴纸：大尺寸黄色标签 -->
+    <Sticker 
+      type="text"
+      top="100px"
+      left="100px"
+      :width="420"
+      :height="380"
+      :rotate="-3"
+      :zIndex="20"
+    />
+
+    <!-- 图片贴纸：Claude Icon -->
+    <Sticker 
+      type="image"
+      src="https://sticker.oooo.so/default-gallery/claude.svg"
+      top="50px"
+      left="50px"
+      :width="140"
+      :height="140"
+      :zIndex="21"
+    />
+
+    <!-- 文字贴纸：右侧自定义文字 -->
+    <Sticker 
+      type="text"
+      :text="'欢迎来到\ni3bel 的主页\n不要撕我'"
+      top="200px"
+      right="120px"
+      :width="340"
+      :height="280"
+      :rotate="4"
+      :zIndex="20"
+    />
+
+
+        <Sticker 
+      type="text"
+      :text="'存活了三千年的\n魔法使'"
+      top="290px"
+      right="720px"
+      :fontSize="32"
+      :width="240"
+      :height="300"
+      :rotate="4"
+      :zIndex="20"
+    />
+
+    <!-- ==================================================== -->
+    <!-- 主页面内容区域 -->
+    <!-- ==================================================== -->
+    <div class="blog-container">
+      <!-- 1. 标题 -->
+      <Title color="purple" size="large">事已至此，先吃饭吧</Title>
+      
+      <!-- 2. 虚线分割线 -->
+      <Divider type="dashed-brown" style="margin-top: 20px;" />
+
+      <!-- 3. Hero 内容区 (头像 + 名字 + 签名) -->
+      <div class="vp-home-hero">
+        <div class="avatar">
+          <img src="https://github.com/i3bel.png" alt="avatar" />
+        </div>
+        <h1>你好，我是 i3bel</h1>
+
+        <div class="signature">
+          <div class="signature-quote">
+            <span class="signature-mark">"</span>
+            <span class="signature-text">{{ quote }}</span>
+            <span class="signature-mark">"</span>
+          </div>
+        </div>
       </div>
+
+<!-- 4. 🎯 文件夹展示区：精确放在 Hero 区域正下方 -->
+<div class="folders-rack">
+  
+  <!-- 文件夹 1：往左偏一些，稍微偏上 -->
+  <ConfidentialFolder 
+    title="正在看" 
+    :rotate="0" 
+    style="left: calc(50% - 350px); top: -140px;"
+  />
+
+  <!-- 文件夹 2：往右偏一些，稍微偏下，形成高低错落感 -->
+  <ConfidentialFolder 
+    title="老番神作" 
+    :rotate="0" 
+    style="left: calc(50% - 850px); top: -140px;"
+  />
+
+</div>
+
     </div>
 
-    <div class="actions">
-      <a href="/blog/" class="btn btn-primary">查看博客</a>
-      <a href="/about/" class="btn btn-secondary">关于我</a>
-    </div>
-  </div>
-
-  <div class="post-list">
-    <h2 class="section-title">最新文章</h2>
-    <div v-for="post in posts" :key="post.url" class="post-item">
-      <div class="post-date">{{ post.date }}</div>
-      <div class="post-title">
-        <a :href="post.url">{{ post.title }}</a>
-      </div>
-      <p class="post-summary">{{ post.summary }}</p>
-      <div class="post-tags">
-        <a
-          v-for="tag in post.tags"
-          :key="tag"
-          :href="`/tags/#${tag}`"
-          class="post-tag"
-        >#{{ tag }}</a>
-      </div>
-    </div>
   </div>
 </template>
+
+<style scoped>
+.homepage-root {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* 主容器 */
+.blog-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: calc(var(--vp-nav-height, 64px) + 32px) 24px 64px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Hero 内容区样式 */
+.vp-home-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+/* ===== 头像尺寸控制 ===== */
+.vp-home-hero .avatar {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 16px;
+}
+
+.vp-home-hero .avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* 🎯 文件夹横向并列容器 (居中在 Hero 正下方) */
+.folders-rack {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 160px; /* 两个文件夹之间的间隔 */
+  margin-top: 80px; /* 与 Hero 区域保持高度距离 */
+  position: relative;
+  min-height: 260px; /* 预留展开空间 */
+}
+
+/* 移动端适配 */
+@media (max-width: 640px) {
+  .blog-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  .vp-home-hero .avatar {
+    width: 120px;
+    height: 120px;
+  }
+
+  .folders-rack {
+    flex-direction: column;
+    gap: 100px;
+  }
+}
+
+
+
+</style>
