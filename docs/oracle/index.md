@@ -325,14 +325,7 @@ onUnmounted(() => {
     {{ totalCount }} 文章
   </Button>
 
-  <Button 
-    type="primary" 
-    danger 
-    style="margin-top: 10px; margin-bottom: 20px;" 
-    @click="toggleTheme"
-  >
-    {{ isDark ? '☀️ 浅色模式' : '🌙 深色模式' }}
-  </Button>
+  
   
   <Table :columns="columns" :data-source="tableData" :striped="striped">
     <!-- 标题列：渲染为可点击链接 -->
