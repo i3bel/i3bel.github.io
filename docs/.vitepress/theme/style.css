@@ -681,3 +681,16 @@ body::-webkit-scrollbar {
 }
 
 
+/* 开启主题颜色平滑过渡 */
+:root,
+html,
+body,
+/* 包含 VitePress 的核心布局与卡片容器 */
+.VPNav,
+.VPSidebar,
+.VPContent,
+.VPFooter,
+.VPDoc,
+.VPCard {
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease !important;
+}

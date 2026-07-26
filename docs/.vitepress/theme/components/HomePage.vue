@@ -139,14 +139,43 @@ const quote = ref(quotes[Math.floor(Math.random() * quotes.length)])
       :zIndex="20"
     />
 
-    <!-- 图片贴纸：Claude Icon -->
-    <Sticker 
+<Sticker 
+  type="image"
+  src="/Sticker/vue.png"
+  top="350px"
+  left="50px"
+  :width="140"
+  :height="140"
+  :zIndex="21"
+/>
+
+        <Sticker 
       type="image"
-      src="https://sticker.oooo.so/default-gallery/claude.svg"
+      src="/Sticker/Claude.png"
       top="50px"
       left="50px"
       :width="140"
       :height="140"
+      :zIndex="21"
+    />
+
+            <Sticker 
+      type="image"
+      src="/Sticker/Chatgpt.png"
+      top="280px"
+      left="200px"
+      :width="140"
+      :height="140"
+      :zIndex="21"
+    />
+
+                <Sticker 
+      type="image"
+      src="/Sticker/NyanNyanFactory.png"
+      top="60px"
+      left="250px"
+      :width="240"
+      :height="440"
       :zIndex="21"
     />
 
@@ -166,8 +195,8 @@ const quote = ref(quotes[Math.floor(Math.random() * quotes.length)])
         <Sticker 
       type="text"
       :text="'存活了三千年的\n魔法使'"
-      top="290px"
-      right="720px"
+      top="370px"
+      right="750px"
       :fontSize="32"
       :width="240"
       :height="300"
