@@ -60,6 +60,7 @@ const menuMap: Record<string, MenuItem[]> = {
     { key: 'tags', label: '🏷️ 索引室', target: '/tags/', message: '把刚刚获得的启示，归类到具体的魔力标记里去吧。' },
     { key: 'loft', label: '📖 阁楼', target: '/loft/', message: '积灰的阴暗角落里……说不定正藏着宝箱怪（以及罕见的魔导书）呢。' },
     { key: 'darkroom', label: '🕯️ 暗房', target: '/darkroom/', message: '点亮一盏微光，在静谧的暗房里，像吟唱咒语一样专注地敲击指尖吧。' },
+    { key: 'time', label: '🕰️ 钟楼', target: '/time/', message: '「能精确测量极小时间缝隙的魔法」……在这里打个盹也不错。' },
   ],
 
   // 从 阁楼 (/loft/) 出发
@@ -76,6 +77,13 @@ const menuMap: Record<string, MenuItem[]> = {
     { key: 'oracle', label: '🔮 占卜室', target: '/oracle/', message: '咏唱遇到了瓶颈……去寻找一点神秘的灵感与启发吧。' },
   ],
 
+
+  '/time/': [
+    { key: 'hall', label: '🏠 大厅', target: '/', message: '走吧，离开钟楼……大家应该还在大树下等着我们呢。' },
+    { key: 'oracle', label: '🔮 占卜室', target: '/oracle/', message: '听说占卜室里也有关于时间的魔法……要顺便去看看吗？' },
+    { key: 'loft', label: '📖 阁楼', target: '/loft/', message: '钟楼高处吹来的风……让人想起阁楼里那些被遗忘的旧物了。' },
+  ],
+
   // 从 大厅 (/) 出发（旅程的起点与中途休息站）
   '/': [
     { key: 'blog', label: '🖼️ 陈列廊', target: '/blog/', message: '来看看这一路上，我和伙伴们都收集到了哪些有趣的故事吧。' },
@@ -86,7 +94,10 @@ const menuMap: Record<string, MenuItem[]> = {
     { key: 'loft', label: '📖 阁楼', target: '/loft/', message: '积灰的阴暗角落里……说不定藏着什么毫无用处却很有趣的小玩意呢。' },
     { key: 'study', label: '👤 书房', target: '/study/', message: '找个安静的地方坐下，聊聊关于我的、以及那些漫长的时光吧。' },
     { key: 'darkroom', label: '🕯️ 暗房', target: '/darkroom/', message: '点亮一盏微光，在静谧的暗房里，像吟唱咒语一样专注地敲击指尖吧。' },
-  ],
+    { key: 'time', label: '🕰️ 钟楼', target: '/time/', message: '对于长寿种来说，时间总是过得很快……不过在这里，你或许能捕捉到某一瞬的微光。' },
+    ],
+    
+
 }
 
 function matchedOptions(): MenuItem[] {
