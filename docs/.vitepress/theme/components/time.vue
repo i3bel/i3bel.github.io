@@ -3,6 +3,37 @@ import { ref, onMounted, onUnmounted } from 'vue';
 import { useData } from 'vitepress';
 import { Notification, NotificationContainer } from 'animal-island-vue';
 
+// 1. 创建 Web Audio API 上下文（音效合成器）
+function playMagicSound() {
+  try {
+    const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
+    if (!AudioCtx) return;
+    const ctx = new AudioCtx();
+
+    // 创建振荡器（发声 source）和增益节点（音量控制）
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+
+    osc.type = 'sine'; // 正弦波，适合魔法空灵感
+    // 频率从 880Hz (A5) 快速滑落到 220Hz (A3)，形成“魔力突变”声
+    osc.frequency.setValueAtTime(880, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(220, ctx.currentTime + 0.15);
+
+    // 音量淡出，避免喀哒噪音
+    gain.gain.setValueAtTime(0.3, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.15);
+
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+
+    osc.start();
+    osc.stop(ctx.currentTime + 0.15);
+  } catch (e) {
+    // 忽略部分浏览器未交互时的播放限制
+  }
+}
+
+
 // ==========================================
 // 1. 核心：调用 VitePress 的全局深浅色状态
 // ==========================================
@@ -107,6 +138,7 @@ function startRound() {
 
     // 触发全站主题颠倒
     toggleTheme();
+    playMagicSound();
     startTime = performance.now();
     isWaitingChange.value = false;
     isTiming.value = true;

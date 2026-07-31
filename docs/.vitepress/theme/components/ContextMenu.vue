@@ -77,7 +77,7 @@ const menuMap: Record<string, MenuItem[]> = {
     { key: 'oracle', label: '🔮 占卜室', target: '/oracle/', message: '咏唱遇到了瓶颈……去寻找一点神秘的灵感与启发吧。' },
   ],
 
-
+  // 从 钟楼 (/time/) 出发
   '/time/': [
     { key: 'hall', label: '🏠 大厅', target: '/', message: '走吧，离开钟楼……大家应该还在大树下等着我们呢。' },
     { key: 'oracle', label: '🔮 占卜室', target: '/oracle/', message: '听说占卜室里也有关于时间的魔法……要顺便去看看吗？' },

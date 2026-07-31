@@ -3,11 +3,9 @@
 import { ref } from 'vue'
 import { Title, Divider } from 'animal-island-vue'
 import 'animal-island-vue/style'
-import Sticker from './Sticker.vue'
-import ConfidentialFolder from './ConfidentialFolder.vue'
 
 const quotes = [
-     // 二次元语录
+  // 二次元语录
   '不要道歉，因为道歉就意味着你认为自己做错了。——《EVA》',
   '所谓奇迹，就是用来创造的。——《天元突破》',
   '即使知道结局，我也要选择这条路。——《命运石之门》',
@@ -67,7 +65,7 @@ const quotes = [
   '所谓的强大，是承认自己的软弱。——《一拳超人》',
   '即使被背叛，也要相信友情。——《火影忍者》',
   '人只有在失去后，才会懂得珍惜。——《可塑性记忆》',
-  '即使知道会受伤，也要去爱。——《四月是你的谎言》',
+  '即使知道会受伤，也要去爱。——《四月是你的语言》',
   '所谓的未来，是由现在创造的。——《命运石之门》',
   '即使被全世界误解，我也要做自己。——《无头骑士异闻录》',
   '人是为了被记住而存在的。——《寻梦环游记》',
@@ -125,86 +123,6 @@ const quote = ref(quotes[Math.floor(Math.random() * quotes.length)])
   <div class="homepage-root">
 
     <!-- ==================================================== -->
-    <!-- 贴纸放置区域 (图片 & 1:1 文字贴纸) -->
-    <!-- ==================================================== -->
-
-    <!-- 文字贴纸：大尺寸黄色标签 -->
-    <Sticker 
-      type="text"
-      top="100px"
-      left="100px"
-      :width="420"
-      :height="380"
-      :rotate="-3"
-      :zIndex="20"
-    />
-
-<Sticker 
-  type="image"
-  src="/Sticker/vue.png"
-  top="350px"
-  left="50px"
-  :width="140"
-  :height="140"
-  :zIndex="21"
-/>
-
-        <Sticker 
-      type="image"
-      src="/Sticker/Claude.png"
-      top="50px"
-      left="50px"
-      :width="140"
-      :height="140"
-      :zIndex="21"
-    />
-
-            <Sticker 
-      type="image"
-      src="/Sticker/Chatgpt.png"
-      top="280px"
-      left="200px"
-      :width="140"
-      :height="140"
-      :zIndex="21"
-    />
-
-                <Sticker 
-      type="image"
-      src="/Sticker/NyanNyanFactory.png"
-      top="60px"
-      left="250px"
-      :width="240"
-      :height="440"
-      :zIndex="21"
-    />
-
-    <!-- 文字贴纸：右侧自定义文字 -->
-    <Sticker 
-      type="text"
-      :text="'欢迎来到\ni3bel 的主页\n不要撕我'"
-      top="200px"
-      right="120px"
-      :width="340"
-      :height="280"
-      :rotate="4"
-      :zIndex="20"
-    />
-
-
-        <Sticker 
-      type="text"
-      :text="'存活了三千年的\n魔法使'"
-      top="370px"
-      right="750px"
-      :fontSize="32"
-      :width="240"
-      :height="300"
-      :rotate="4"
-      :zIndex="20"
-    />
-
-    <!-- ==================================================== -->
     <!-- 主页面内容区域 -->
     <!-- ==================================================== -->
     <div class="blog-container">
@@ -229,25 +147,6 @@ const quote = ref(quotes[Math.floor(Math.random() * quotes.length)])
           </div>
         </div>
       </div>
-
-<!-- 4. 🎯 文件夹展示区：精确放在 Hero 区域正下方 -->
-<div class="folders-rack">
-  
-  <!-- 文件夹 1：往左偏一些，稍微偏上 -->
-  <ConfidentialFolder 
-    title="正在看" 
-    :rotate="0" 
-    style="left: calc(50% - 350px); top: -140px;"
-  />
-
-  <!-- 文件夹 2：往右偏一些，稍微偏下，形成高低错落感 -->
-  <ConfidentialFolder 
-    title="老番神作" 
-    :rotate="0" 
-    style="left: calc(50% - 850px); top: -140px;"
-  />
-
-</div>
 
     </div>
 
@@ -296,17 +195,6 @@ const quote = ref(quotes[Math.floor(Math.random() * quotes.length)])
   object-fit: cover;
 }
 
-/* 🎯 文件夹横向并列容器 (居中在 Hero 正下方) */
-.folders-rack {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 160px; /* 两个文件夹之间的间隔 */
-  margin-top: 80px; /* 与 Hero 区域保持高度距离 */
-  position: relative;
-  min-height: 260px; /* 预留展开空间 */
-}
-
 /* 移动端适配 */
 @media (max-width: 640px) {
   .blog-container {
@@ -318,13 +206,5 @@ const quote = ref(quotes[Math.floor(Math.random() * quotes.length)])
     width: 120px;
     height: 120px;
   }
-
-  .folders-rack {
-    flex-direction: column;
-    gap: 100px;
-  }
 }
-
-
-
 </style>

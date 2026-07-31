@@ -4,7 +4,7 @@ title: time
 ---
 
 <script setup>
-import TimeApp from '@theme/components/time.vue'
+import Time from '@theme/components/time.vue'
 </script>
 
-<TimeApp />
+<Time />
