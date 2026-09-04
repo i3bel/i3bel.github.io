@@ -121,7 +121,7 @@ const active = ref('about');
 /* 选项卡内部文档排版适配 */
 .tab-content {
   padding-top: 12px;
-  color: var(--vp-c-text-1);
+  color: #333;
   line-height: 1.7;
 }
 

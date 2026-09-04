@@ -31,7 +31,7 @@ const friends = [
   <div style="height: 10px;"></div>
 
   <Card type="dashed" style="margin-bottom: 20px;">
-    <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 4px; color: var(--vp-c-text-1);">
+    <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 4px; color: #333;">
       <span>欢迎互加友链，</span>
       <a href="https://github.com/i3bel/i3bel.github.io/issues" target="_blank" rel="noopener" style="text-decoration: none;">
         <Button type="link" style="padding: 0; font-size: inherit;">点击这里</Button>
@@ -61,7 +61,7 @@ const friends = [
           </div>
           <!-- 文字信息 -->
           <div style="flex: 1; min-width: 0;">
-            <div style="font-weight: 600; color: var(--vp-c-text-1); font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+            <div style="font-weight: 600; color: #333; font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
               {{ friend.name }}
             </div>
             <div v-if="friend.desc" style="font-size: 12px; color: var(--vp-c-text-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">

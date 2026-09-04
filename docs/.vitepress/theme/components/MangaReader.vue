@@ -33,7 +33,7 @@
             style="margin-top: 10px; margin-bottom: 20px;" 
             @click="triggerFolderSelect"
           >
-            选择文件夹
+            选文件夹看漫画
           </Button>
 
           <!-- 2. 选择多张图片 -->
@@ -43,7 +43,7 @@
             style="margin-top: 10px; margin-bottom: 20px;" 
             @click="triggerImagesSelect"
           >
-            选择多张图片
+            选图片看漫画
           </Button>
 
           <!-- 3. 点击直接跳转到 /文档编辑/ 页面 -->
@@ -63,18 +63,10 @@
             style="margin-top: 10px; margin-bottom: 20px;" 
             @click="toggleTheme"
           >
-            {{ isDark ? '☀️ 浅色模式' : '🌙 深色模式' }}
+            {{ isDark ? '已暗色' : '已亮色' }}
           </Button>
 
-          <!-- 5. 打字练习按钮（跳转暗房） -->
-          <Button 
-            type="primary" 
-            danger 
-            style="margin-top: 10px; margin-bottom: 20px;" 
-            @click="goToTyping"
-          >
-            🕯️ 暗房打字
-          </Button>
+
         </div>
 
         <Card type="dashed" color="warm-peach-pink" style="margin-top: 10px;">

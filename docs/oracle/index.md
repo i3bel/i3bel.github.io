@@ -374,7 +374,7 @@ onUnmounted(() => {
 
 .table-title-link {
   text-decoration: none;
-  color: var(--vp-c-text-1, #333);
+  color: var( #333);
   font-weight: 500;
   transition: color 0.15s ease;
 }
